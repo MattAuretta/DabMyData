@@ -1,0 +1,48 @@
+    body {
+        background-image: url("../images/background.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        background-color: #333;
+    }
+
+    h1 {
+        color: #222;
+        text-align: center;
+        font-size: 40px;
+        font-family: 'Permanent Marker', cursive;
+        display: inline-block;
+    }
+
+    .reverse-letter {
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+        unicode-bidi: bidi-override;
+        direction: rtl;
+    }
+
+    #dStyle {
+        margin-bottom: 8px;
+    }
+
+    #navBar,
+    #memberInfo-display {
+        font-family: 'Permanent Marker', cursive;
+        font-family: 'Give You Glory', cursive;
+        font-family: 'Shadows Into Light', cursive;
+        font-size: 25px;
+    }
+
+    h3,
+    #footer {
+        font-family: 'Permanent Marker', cursive;
+        font-family: 'Give You Glory', cursive;
+        font-family: 'Shadows Into Light', cursive;
+        font-size: 25px;
+        color: whitesmoke
+    }
+
+    #beerEx {
+        height: 650px;
+    }

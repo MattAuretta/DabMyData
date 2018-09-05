@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dab My Data</title>
+  <!-- Font Links -->
+  <link href="https://fonts.googleapis.com/css?family=Give+You+Glory|Permanent+Marker|Shadows+Into+Light" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Give+You+Glory|Permanent+Marker" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+  <!-- Link to Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <!-- Link to main CSS file -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <!-- Link to Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+</head>
+
+<body>
+
+  <h1><img src="assets/images/backwardsD.png">abMyData</h1>
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm"></button> -->
+  <!-- <div class="modal fade" id="memberInfo-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Member details</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                    <div id="ageModal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                    ARE YOU AT LEAST 21
+                                </div>
+                                <button class="btn btn-btn-info">Yes</button>
+                                <button class="btn btn-btn-info">No</button>
+                            </div>
+                           </div>
+                <form>
+                        <div class="form-group">
+                                <label for="memberName">Name</label>
+                                <input type="text" class="form-control" id="memberName-input" placeholder="Mary Jane">
+                              </div>
+                    <div class="form-group">
+                      <label for="phoneNumber">Phone Number</label>
+                      <input type="tel" class="form-control" id="memberNumber" aria-describedby="memberNum" placeholder="(303)-123-4567">
+                      <small id="memberNumber-input" class="form-text text-muted">This is your unique ID</small>
+                    </div>
+                    <!-- <div class="modal-footer"> -->
+  <!-- <button type="submit" class="btn btn-dark">submit</button>
+                          </div>
+                  </form>
+            </div> -->
+  <!-- ᗡ -->
+  <!-- </div>
+  </div>
+  </div> -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" id="navBar" href="#">Dab my Data</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" id="navBar" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="navBar" href="favorites.html">Favorites</a>
+        </li>
+        <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li> -->
+      </ul>
+      <span class="navbar-text">
+        <p id="memberInfo-display">Member Info</p>
+      </span>
+    </div>
+  </nav>
+  <br>
+  <div class="container">
+    <table class="table table-striped table-dark" id="favTable">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Strain Name</th>
+          <th scope="col">Race</th>
+          <th scope="col">Flavor</th>
+          <th scope="col">Effects</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Fruity Pebbles</td>
+          <td>Sativa</td>
+          <td>Fruity, Light</td>
+          <td>Euphoric, Energy</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Fruity Pebbles</td>
+          <td>Sativa</td>
+          <td>Fruity, Light</td>
+          <td>Euphoric, Energy</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Fruity Pebbles</td>
+          <td>Sativa</td>
+          <td>Fruity, Light</td>
+          <td>Euphoric, Energy</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script type>
+    // $(window).on('load',function(){
+    //     $('#ageModal').modal('show');
+    // });
+    // $(window).on('load',function(){
+    //     $('#memberInfo-modal').modal('show');
+    // });
+</script>
+  <!-- Bootstrap JS Links -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <!-- Link to jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Link to main JS file -->
+  <script src="assets/javascript/app.js"></script>
+</body>
+
+</html>

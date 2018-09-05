@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dab My Data</title>
+    <!-- Font Links -->
+    <link href="https://fonts.googleapis.com/css?family=Give+You+Glory|Permanent+Marker|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Give+You+Glory|Permanent+Marker" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <!-- Link to Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
@@ -16,7 +20,96 @@
 </head>
 
 <body>
+    <div class="container">
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm"></button> -->
+        <div class="modal fade" id="memberInfo-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Member details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="ageModal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog"
+                            aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                    ARE YOU AT LEAST 21
+                                </div>
+                                <button class="btn btn-btn-info">Yes</button>
+                                <button class="btn btn-btn-info">No</button>
+                            </div>
+                        </div>
+                        <form>
+                            <div class="form-group">
+                                <label for="memberName">Name</label>
+                                <input type="text" class="form-control" id="memberName-input" placeholder="Mary Jane">
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNumber">Phone Number</label>
+                                <input type="tel" class="form-control" id="memberNumber" aria-describedby="memberNum"
+                                    placeholder="(303)-123-4567">
+                                <small id="memberNumber-input" class="form-text text-muted">This is your unique ID</small>
+                            </div>
 
+                            <button type="submit" class="btn btn-dark">submit</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- THIS IS THE BACKWARDS 'D' for text in the page ᗡ -->
+            </div>
+        </div>
+
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" id="navBar" href="#">
+                <h1 class="reverse-letter">D</h1><h1>abMyData</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" id="navBar" href="index.html">Home</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="navBar" href="favorites.html">Favorites</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    <p id="memberInfo-display">Member Info</p>
+                </span>
+                <form class="form-inline my-2 my-lg-0">
+                    <input id="strain-input" class="form-control mr-sm-2" type="search" placeholder="Enter Strain" aria-label="Search">
+                    <button id="add-strain" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+
+        <div class="row">
+            <div class="col-md-12">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="footer" class="footer-copyright text-center">© 2018 Copyright: McJ²</div>
+    <!-- Chart.js Link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <!-- Bootstrap JS Links -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
     <!-- Link to jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Link to main JS file -->

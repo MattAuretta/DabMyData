@@ -85,7 +85,11 @@
                     <p id="memberInfo-display">Member Info</p>
                 </span>
                 <form class="form-inline my-2 my-lg-0">
-                    <input id="strain-input" class="form-control mr-sm-2" type="search" placeholder="Enter Strain" aria-label="Search">
+                    <input list="strains-datalist" id="strain-input" class="form-control mr-sm-2" type="search" placeholder="Enter Strain"
+                        aria-label="Search">
+                    <datalist id="strains-datalist">
+                        <!-- Strain Names Go Here -->
+                    </datalist>
                     <button id="add-strain" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>

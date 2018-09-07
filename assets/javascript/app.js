@@ -25,6 +25,33 @@ $("#add-strain").on("click", function (event) {
     $("#strain-input").val("")
 })
 
+//function that pushes strains to database
+function masterDatabase() {
+    $.ajax({
+        url: "http://strainapi.evanbusse.com/vij2AV1/strains/search/all",
+        method: "GET",
+
+    }).then(function (response) {
+        // console.log(response)
+        // database.ref("/master/").push({
+        //     strain: 'evan'
+        // });
+        var x;
+        for (x in response ) {
+            var strainName = x;
+            var strainId = response[x].id;
+
+            database.ref("/master/").push({
+            strainName: strainName,
+            strainId: strainId
+        });
+        }
+    });
+}
+
+//Only execute to update database
+// masterDatabase();
+
 //When the databse receives a new strain value
 database.ref("/strain/").on("value", function (childSnapshot) {
     //Create local variable for strain

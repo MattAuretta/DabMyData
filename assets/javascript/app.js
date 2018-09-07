@@ -37,20 +37,50 @@ function masterDatabase() {
         //     strain: 'evan'
         // });
         var x;
-        for (x in response ) {
+        for (x in response) {
             var strainName = x;
             var strainId = response[x].id;
 
             database.ref("/master/").push({
-            strainName: strainName,
-            strainId: strainId
-        });
+                strainName: strainName,
+                strainId: strainId
+            });
         }
     });
 }
 
 //Only execute to update database
 // masterDatabase();
+
+//Function to create datalist in search bar
+function strainDatalist() {
+    database.ref("/master/").on("value", function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
+            var master = childSnapshot.val();
+            // console.log(master)
+            var masterArray = [];
+            masterArray.push(master.strainName);
+            // console.log(masterArray);
+            for (var i = 0; i < masterArray.length; i++) {
+                var option = $("<option>").attr("value", masterArray[i]);
+                $("#strains-datalist").append(option);
+            }
+        })
+    })
+}
+
+//Append datalist if strain-input is greater than 3 characters
+// $("#strain-input").on("input", function () {
+//     if ($(this).val().length > 3) {
+//         $("#strains-datalist").empty();
+//         console.log("test")
+//         strainDatalist();
+//     } else {
+//         $("#strains-datalist").empty();
+//     }
+// })
+
+strainDatalist();
 
 //When the databse receives a new strain value
 database.ref("/strain/").on("value", function (childSnapshot) {
@@ -79,7 +109,7 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                         r: 15
                     }]
                 }, {
-                    label: ["Denmark"],
+                    label: [response[0].name],
                     backgroundColor: "rgba(60,186,159,0.2)",
                     borderColor: "rgba(60,186,159,1)",
                     data: [{

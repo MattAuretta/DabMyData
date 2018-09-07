@@ -25,6 +25,33 @@ $("#add-strain").on("click", function (event) {
     $("#strain-input").val("")
 })
 
+//function that pushes strains to database
+function masterDatabase() {
+    $.ajax({
+        url: "http://strainapi.evanbusse.com/vij2AV1/strains/search/all",
+        method: "GET",
+
+    }).then(function (response) {
+        // console.log(response)
+        // database.ref("/master/").push({
+        //     strain: 'evan'
+        // });
+        var x;
+        for (x in response ) {
+            var strainName = x;
+            var strainId = response[x].id;
+
+            database.ref("/master/").push({
+            strainName: strainName,
+            strainId: strainId
+        });
+        }
+    });
+}
+
+//Only execute to update database
+// masterDatabase();
+
 //When the databse receives a new strain value
 database.ref("/strain/").on("value", function (childSnapshot) {
     //Create local variable for strain
@@ -37,26 +64,70 @@ database.ref("/strain/").on("value", function (childSnapshot) {
     }).then(function (response) {
         console.log(response);
 
+        //Chart.js example
+        new Chart(document.getElementById("myChart"), {
+            type: 'bubble',
+            data: {
+                labels: "Africa",
+                datasets: [{
+                    label: [response[0].name],
+                    backgroundColor: "rgba(255,221,50,0.2)",
+                    borderColor: "rgba(255,221,50,1)",
+                    data: [{
+                        x: 30,
+                        y: 3.5,
+                        r: 15
+                    }]
+                }, {
+                    label: ["Denmark"],
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: 20,
+                        y: 3,
+                        r: 10
+                    }]
+                }, {
+                    label: ["Germany"],
+                    backgroundColor: "rgba(0,0,255,0.2)",
+                    borderColor: "rgba(0,0,255,1)",
+                    data: [{
+                        x: 30,
+                        y: 6.994,
+                        r: 15
+                    }]
+                }, {
+                    label: ["Japan"],
+                    backgroundColor: "rgba(193,46,12,0.2)",
+                    borderColor: "rgba(193,46,12,1)",
+                    data: [{
+                        x: 40,
+                        y: 0,
+                        r: 15
+                    }]
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Predicted world population (millions) in 2050'
+                },
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: "Happiness"
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: "GDP (PPP)"
+                        }
+                    }]
+                }
+            }
+        });
     });
 });
 
-//Chart.js example
-var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
-
-    // The data for our dataset
-    data: {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
-        datasets: [{
-            label: "My First dataset",
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45],
-        }]
-    },
-
-    // Configuration options go here
-    options: {}
-});

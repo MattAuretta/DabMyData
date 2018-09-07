@@ -37,14 +37,14 @@ function masterDatabase() {
         //     strain: 'evan'
         // });
         var x;
-        for (x in response ) {
+        for (x in response) {
             var strainName = x;
             var strainId = response[x].id;
 
             database.ref("/master/").push({
-            strainName: strainName,
-            strainId: strainId
-        });
+                strainName: strainName,
+                strainId: strainId
+            });
         }
     });
 }
@@ -52,17 +52,62 @@ function masterDatabase() {
 //Only execute to update database
 // masterDatabase();
 
+//Function to create datalist in search bar
+function strainDatalist() {
+    database.ref("/master/").on("value", function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
+            var master = childSnapshot.val();
+            // console.log(master)
+            var masterArray = [];
+            masterArray.push(master.strainName);
+            // console.log(masterArray);
+            for (var i = 0; i < masterArray.length; i++) {
+                var option = $("<option>").attr("value", masterArray[i]);
+                $("#strains-datalist").append(option);
+            }
+        })
+    })
+}
+
+//Append datalist if strain-input is greater than 3 characters
+// $("#strain-input").on("input", function () {
+//     if ($(this).val().length > 3) {
+//         $("#strains-datalist").empty();
+//         console.log("test")
+//         strainDatalist();
+//     } else {
+//         $("#strains-datalist").empty();
+//     }
+// })
+
+strainDatalist();
+
 //When the databse receives a new strain value
 database.ref("/strain/").on("value", function (childSnapshot) {
     //Create local variable for strain
-    var strain = childSnapshot.val()
-    //AJAX call to The Strain API
+    var strain = childSnapshot.val();
+    //AJAX call for specific strain user is searching
     $.ajax({
         url: "http://strainapi.evanbusse.com/vij2AV1/strains/search/name/" + strain + "",
         method: "GET",
 
     }).then(function (response) {
-        console.log(response);
+        //Strain name that the user searched
+        console.log(response[0].name);
+
+        //Create empty array to hold all strain names from database
+        var masterArray = [];
+        //Call Firebase master data
+        database.ref("/master/").on("value", function (snapshot) {
+            //Get children of snapshot
+            snapshot.forEach(function (childSnapshot) {
+                //Assign variable to childSnapshot
+                var master = childSnapshot.val();
+                //Push each childSnapshot into masterArray
+                masterArray.push(master.strainName);
+            })
+            console.log(masterArray);
+        });
 
         //Chart.js example
         new Chart(document.getElementById("myChart"), {
@@ -70,6 +115,7 @@ database.ref("/strain/").on("value", function (childSnapshot) {
             data: {
                 labels: "Africa",
                 datasets: [{
+                    //Single strain search AJAX call
                     label: [response[0].name],
                     backgroundColor: "rgba(255,221,50,0.2)",
                     borderColor: "rgba(255,221,50,1)",
@@ -79,7 +125,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                         r: 15
                     }]
                 }, {
-                    label: ["Denmark"],
+                    //Pull random strain name from masterArray
+                    label: [masterArray[Math.floor(Math.random()*1971)]],
                     backgroundColor: "rgba(60,186,159,0.2)",
                     borderColor: "rgba(60,186,159,1)",
                     data: [{
@@ -88,7 +135,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                         r: 10
                     }]
                 }, {
-                    label: ["Germany"],
+                    //Pull random strain name from masterArray
+                    label: [masterArray[Math.floor(Math.random()*1971)]],
                     backgroundColor: "rgba(0,0,255,0.2)",
                     borderColor: "#000",
                     data: [{
@@ -97,7 +145,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                         r: 15
                     }]
                 }, {
-                    label: ["Japan"],
+                    //Pull random strain name from masterArray
+                    label: [masterArray[Math.floor(Math.random()*1971)]],
                     backgroundColor: "rgba(193,46,12,0.2)",
                     borderColor: "rgba(193,46,12,1)",
                     data: [{

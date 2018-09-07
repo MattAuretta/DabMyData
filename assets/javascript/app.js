@@ -74,8 +74,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                     backgroundColor: "rgba(255,221,50,0.2)",
                     borderColor: "rgba(255,221,50,1)",
                     data: [{
-                        x: 30,
-                        y: 3.5,
+                        x: 10,
+                        y: 5.245,
                         r: 15
                     }]
                 }, {
@@ -84,13 +84,13 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                     borderColor: "rgba(60,186,159,1)",
                     data: [{
                         x: 20,
-                        y: 3,
+                        y: 7.526,
                         r: 10
                     }]
                 }, {
                     label: ["Germany"],
                     backgroundColor: "rgba(0,0,255,0.2)",
-                    borderColor: "rgba(0,0,255,1)",
+                    borderColor: "#000",
                     data: [{
                         x: 30,
                         y: 6.994,
@@ -102,7 +102,7 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                     borderColor: "rgba(193,46,12,1)",
                     data: [{
                         x: 40,
-                        y: 0,
+                        y: 5.921,
                         r: 15
                     }]
                 }]
@@ -130,4 +130,3 @@ database.ref("/strain/").on("value", function (childSnapshot) {
         });
     });
 });
-

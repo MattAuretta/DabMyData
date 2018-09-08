@@ -84,6 +84,7 @@ strainDatalist();
 
 //When the databse receives a new strain value
 database.ref("/strain/").on("value", function (childSnapshot) {
+
     //Create local variable for strain
     var strain = childSnapshot.val();
     //AJAX call for specific strain user is searching
@@ -94,7 +95,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
     }).then(function (response) {
         //Strain name that the user searched
         console.log(response[0].name);
-
+        $("#myChart").remove();
+        $("#graph-container").append('<canvas id="myChart"></canvas>');
         //Create empty array to hold all strain names from database
         var masterArray = [];
         //Call Firebase master data
@@ -214,7 +216,7 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                         y: Math.floor(Math.random() * 51),
                         r: 10
                     }]
-                },{
+                }, {
                     //Pull random strain name from masterArray
                     label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
                     backgroundColor: "rgba(60,186,159,0.2)",
@@ -224,7 +226,7 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                         y: Math.floor(Math.random() * 51),
                         r: 15
                     }]
-                },{
+                }, {
                     //Pull random strain name from masterArray
                     label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
                     backgroundColor: "rgba(60,186,159,0.2)",
@@ -234,7 +236,7 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                         y: Math.floor(Math.random() * 51),
                         r: 10
                     }]
-                },{
+                }, {
                     //Pull random strain name from masterArray
                     label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
                     backgroundColor: "rgba(60,186,159,0.2)",

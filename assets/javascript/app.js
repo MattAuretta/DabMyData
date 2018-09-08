@@ -69,7 +69,7 @@ function strainDatalist() {
     })
 }
 
-//Append datalist if strain-input is greater than 3 characters
+// Append datalist if strain-input is greater than 3 characters
 // $("#strain-input").on("input", function () {
 //     if ($(this).val().length > 3) {
 //         $("#strains-datalist").empty();
@@ -104,7 +104,7 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                 //Assign variable to childSnapshot
                 var master = childSnapshot.val();
                 //Push each childSnapshot into masterArray
-                masterArray.push(master.strainName);
+                masterArray.push(master);
             })
             console.log(masterArray);
         });
@@ -117,42 +117,142 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                 datasets: [{
                     //Single strain search AJAX call
                     label: [response[0].name],
-                    backgroundColor: "rgba(255,221,50,0.2)",
-                    borderColor: "rgba(255,221,50,1)",
+                    backgroundColor: "rgba(60,186,159,1)",
+                    borderColor: "rgba(60,186,159,1)",
                     data: [{
-                        x: 10,
-                        y: 5.245,
-                        r: 15
+                        x: 25,
+                        y: 25,
+                        r: 25
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random()*1971)]],
+                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
                     backgroundColor: "rgba(60,186,159,0.2)",
                     borderColor: "rgba(60,186,159,1)",
                     data: [{
-                        x: 20,
-                        y: 7.526,
+                        x: 50,
+                        y: 0,
                         r: 10
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random()*1971)]],
-                    backgroundColor: "rgba(0,0,255,0.2)",
-                    borderColor: "#000",
+                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
                     data: [{
-                        x: 30,
-                        y: 6.994,
+                        x: 0,
+                        y: 50,
                         r: 15
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random()*1971)]],
-                    backgroundColor: "rgba(193,46,12,0.2)",
-                    borderColor: "rgba(193,46,12,1)",
+                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
                     data: [{
-                        x: 40,
-                        y: 5.921,
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 10
+                    }]
+                }, {
+                    //Pull random strain name from masterArray
+                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
                         r: 15
+                    }]
+                }, {
+                    //Pull random strain name from masterArray
+                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 10
+                    }]
+                }, {
+                    //Pull random strain name from masterArray
+                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 15
+                    }]
+                }, {
+                    //Pull random strain name from masterArray
+                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 10
+                    }]
+                }, {
+                    //Pull random strain name from masterArray
+                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 15
+                    }]
+                }, {
+                    //Pull random strain name from masterArray
+                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 10
+                    }]
+                },{
+                    //Pull random strain name from masterArray
+                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 15
+                    }]
+                },{
+                    //Pull random strain name from masterArray
+                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 10
+                    }]
+                },{
+                    //Pull random strain name from masterArray
+                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 15
+                    }]
+                }, {
+                    //Pull random strain name from masterArray
+                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 10
                     }]
                 }]
             },

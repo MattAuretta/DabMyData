@@ -110,15 +110,29 @@ database.ref("/strain/").on("value", function (childSnapshot) {
             })
             console.log(masterArray);
         });
+        var randomStrain1 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain2 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain3 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain4 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain5 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain6 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain7 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain8 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain9 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain10 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain11 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain12 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain13 = masterArray[Math.floor(Math.random() * 1971)]
 
         //Chart.js example
-        new Chart(document.getElementById("myChart"), {
+        var strainChart = new Chart(document.getElementById("myChart"), {
             type: 'bubble',
             data: {
                 labels: "Africa",
                 datasets: [{
                     //Single strain search AJAX call
                     label: [response[0].name],
+                    pointStyle: response[0].id,
                     backgroundColor: "rgba(60,186,159,1)",
                     borderColor: "rgba(60,186,159,1)",
                     data: [{
@@ -128,7 +142,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    label: [randomStrain1.strainName],
+                    pointStyle: randomStrain1.strainId,
                     backgroundColor: "rgba(60,186,159,0.2)",
                     borderColor: "rgba(60,186,159,1)",
                     data: [{
@@ -138,7 +153,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    label: [randomStrain2.strainName],
+                    pointStyle: randomStrain2.strainId,
                     backgroundColor: "rgba(60,186,159,0.2)",
                     borderColor: "rgba(60,186,159,1)",
                     data: [{
@@ -148,7 +164,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    label: [randomStrain3.strainName],
+                    pointStyle: randomStrain3.strainId,
                     backgroundColor: "rgba(60,186,159,0.2)",
                     borderColor: "rgba(60,186,159,1)",
                     data: [{
@@ -158,7 +175,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    label: [randomStrain4.strainName],
+                    pointStyle: randomStrain4.strainId,
                     backgroundColor: "rgba(60,186,159,0.2)",
                     borderColor: "rgba(60,186,159,1)",
                     data: [{
@@ -168,7 +186,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    label: [randomStrain5.strainName],
+                    pointStyle: randomStrain5.strainId,
                     backgroundColor: "rgba(60,186,159,0.2)",
                     borderColor: "rgba(60,186,159,1)",
                     data: [{
@@ -178,7 +197,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    label: [randomStrain6.strainName],
+                    pointStyle: randomStrain6.strainId,
                     backgroundColor: "rgba(60,186,159,0.2)",
                     borderColor: "rgba(60,186,159,1)",
                     data: [{
@@ -188,7 +208,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    label: [randomStrain7.strainName],
+                    pointStyle: randomStrain7.strainId,
                     backgroundColor: "rgba(60,186,159,0.2)",
                     borderColor: "rgba(60,186,159,1)",
                     data: [{
@@ -198,7 +219,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    label: [randomStrain8.strainName],
+                    pointStyle: randomStrain8.strainId,
                     backgroundColor: "rgba(60,186,159,0.2)",
                     borderColor: "rgba(60,186,159,1)",
                     data: [{
@@ -208,7 +230,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    label: [randomStrain9.strainName],
+                    pointStyle: randomStrain9.strainId,
                     backgroundColor: "rgba(60,186,159,0.2)",
                     borderColor: "rgba(60,186,159,1)",
                     data: [{
@@ -218,7 +241,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    label: [randomStrain10.strainName],
+                    pointStyle: randomStrain10.strainId,
                     backgroundColor: "rgba(60,186,159,0.2)",
                     borderColor: "rgba(60,186,159,1)",
                     data: [{
@@ -228,7 +252,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    label: [randomStrain11.strainName],
+                    pointStyle: randomStrain11.strainId,
                     backgroundColor: "rgba(60,186,159,0.2)",
                     borderColor: "rgba(60,186,159,1)",
                     data: [{
@@ -238,7 +263,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    label: [randomStrain12.strainName],
+                    pointStyle: randomStrain12.strainId,
                     backgroundColor: "rgba(60,186,159,0.2)",
                     borderColor: "rgba(60,186,159,1)",
                     data: [{
@@ -248,7 +274,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random() * 1971)].strainName],
+                    label: [randomStrain13.strainName],
+                    pointStyle: randomStrain13.strainId,
                     backgroundColor: "rgba(60,186,159,0.2)",
                     borderColor: "rgba(60,186,159,1)",
                     data: [{
@@ -279,5 +306,24 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                 }
             }
         });
+        myChart.onclick = function (evt) {
+            var activePoints = strainChart.getElementsAtEvent(evt);
+            console.log(activePoints);
+            if (activePoints[0]) {
+                var chartData = activePoints[0]['_chart'].config.data;
+                var idx = activePoints[0]['_datasetIndex'];
+                console.log(idx);
+                var label = chartData.labels[idx];
+                console.log(label);
+
+                var name = "Strain Name: " + strainChart.data.datasets[6].label + "Strain Id: " + strainChart.data.datasets[6].pointStyle;
+                
+                console.log(name);
+                alert(name);
+            }
+        };
+        console.log(strainChart.data.datasets[6].pointStyle);
+        console.log(strainChart.data.datasets[6].label);
+
     });
 });

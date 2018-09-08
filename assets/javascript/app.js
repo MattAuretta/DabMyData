@@ -17,19 +17,21 @@ $("#add-strain").on("click", function (event) {
     event.preventDefault();
     //Create variable to hold user input
     var strain = $("#strain-input").val().trim()
-    //Create local variable to push to Firebase
-    // var currentStrain = strain
-    //Set the strain in Firebase
-    // database.ref("/strain/").set(currentStrain);
     //Empty search field
     $("#strain-input").val("")
+    //AJAX call for specific strain user is searching
     $.ajax({
         url: "http://strainapi.evanbusse.com/vij2AV1/strains/search/name/" + strain + "",
         method: "GET",
 
     }).then(function (response) {
+        
+        if(response.length == 0){
+            $("#invalid-strain-modal").modal("show");
+        }
         //Strain name that the user searched
         console.log(response[0].name);
+        
         $("#myChart").remove();
         $("#graph-container").append('<canvas id="myChart"></canvas>');
         //Create empty array to hold all strain names from database
@@ -319,12 +321,3 @@ function strainDatalist() {
 // })
 
 strainDatalist();
-
-//When the databse receives a new strain value
-database.ref("/strain/").on("value", function (childSnapshot) {
-
-    //Create local variable for strain
-    var strain = childSnapshot.val();
-    //AJAX call for specific strain user is searching
-    
-});

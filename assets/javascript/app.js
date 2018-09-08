@@ -110,6 +110,7 @@ database.ref("/strain/").on("value", function (childSnapshot) {
             })
             console.log(masterArray);
         });
+
         var randomStrain1 = masterArray[Math.floor(Math.random() * 1971)]
         var randomStrain2 = masterArray[Math.floor(Math.random() * 1971)]
         var randomStrain3 = masterArray[Math.floor(Math.random() * 1971)]
@@ -128,7 +129,7 @@ database.ref("/strain/").on("value", function (childSnapshot) {
         var strainChart = new Chart(document.getElementById("myChart"), {
             type: 'bubble',
             data: {
-                labels: "Africa",
+                labels: "Strains",
                 datasets: [{
                     //Single strain search AJAX call
                     label: [response[0].name],
@@ -306,24 +307,23 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                 }
             }
         });
+        
         myChart.onclick = function (evt) {
-            var activePoints = strainChart.getElementsAtEvent(evt);
-            console.log(activePoints);
+
+            var activePoints = strainChart.getElementAtEvent(evt);
+
             if (activePoints[0]) {
+
                 var chartData = activePoints[0]['_chart'].config.data;
                 var idx = activePoints[0]['_datasetIndex'];
-                console.log(idx);
-                var label = chartData.labels[idx];
-                console.log(label);
 
-                var name = "Strain Name: " + strainChart.data.datasets[6].label + "Strain Id: " + strainChart.data.datasets[6].pointStyle;
-                
-                console.log(name);
-                alert(name);
+                var label = chartData.datasets[idx].label
+                var value = chartData.datasets[idx].pointStyle
+                alert(label + value);
             }
         };
         console.log(strainChart.data.datasets[6].pointStyle);
         console.log(strainChart.data.datasets[6].label);
-
+        
     });
 });

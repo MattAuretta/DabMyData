@@ -69,7 +69,7 @@ function strainDatalist() {
     })
 }
 
-//Append datalist if strain-input is greater than 3 characters
+// Append datalist if strain-input is greater than 3 characters
 // $("#strain-input").on("input", function () {
 //     if ($(this).val().length > 3) {
 //         $("#strains-datalist").empty();
@@ -84,6 +84,7 @@ strainDatalist();
 
 //When the databse receives a new strain value
 database.ref("/strain/").on("value", function (childSnapshot) {
+
     //Create local variable for strain
     var strain = childSnapshot.val();
     //AJAX call for specific strain user is searching
@@ -94,7 +95,8 @@ database.ref("/strain/").on("value", function (childSnapshot) {
     }).then(function (response) {
         //Strain name that the user searched
         console.log(response[0].name);
-
+        $("#myChart").remove();
+        $("#graph-container").append('<canvas id="myChart"></canvas>');
         //Create empty array to hold all strain names from database
         var masterArray = [];
         //Call Firebase master data
@@ -104,55 +106,182 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                 //Assign variable to childSnapshot
                 var master = childSnapshot.val();
                 //Push each childSnapshot into masterArray
-                masterArray.push(master.strainName);
+                masterArray.push(master);
             })
             console.log(masterArray);
         });
+        var randomStrain1 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain2 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain3 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain4 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain5 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain6 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain7 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain8 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain9 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain10 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain11 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain12 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain13 = masterArray[Math.floor(Math.random() * 1971)]
 
         //Chart.js example
-        new Chart(document.getElementById("myChart"), {
+        var strainChart = new Chart(document.getElementById("myChart"), {
             type: 'bubble',
             data: {
                 labels: "Africa",
                 datasets: [{
                     //Single strain search AJAX call
                     label: [response[0].name],
-                    backgroundColor: "rgba(255,221,50,0.2)",
-                    borderColor: "rgba(255,221,50,1)",
+                    pointStyle: response[0].id,
+                    backgroundColor: "rgba(60,186,159,1)",
+                    borderColor: "rgba(60,186,159,1)",
                     data: [{
-                        x: 10,
-                        y: 5.245,
-                        r: 15
+                        x: 25,
+                        y: 25,
+                        r: 25
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random()*1971)]],
+                    label: [randomStrain1.strainName],
+                    pointStyle: randomStrain1.strainId,
                     backgroundColor: "rgba(60,186,159,0.2)",
                     borderColor: "rgba(60,186,159,1)",
                     data: [{
-                        x: 20,
-                        y: 7.526,
+                        x: 50,
+                        y: 0,
                         r: 10
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random()*1971)]],
-                    backgroundColor: "rgba(0,0,255,0.2)",
-                    borderColor: "#000",
+                    label: [randomStrain2.strainName],
+                    pointStyle: randomStrain2.strainId,
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
                     data: [{
-                        x: 30,
-                        y: 6.994,
+                        x: 0,
+                        y: 50,
                         r: 15
                     }]
                 }, {
                     //Pull random strain name from masterArray
-                    label: [masterArray[Math.floor(Math.random()*1971)]],
-                    backgroundColor: "rgba(193,46,12,0.2)",
-                    borderColor: "rgba(193,46,12,1)",
+                    label: [randomStrain3.strainName],
+                    pointStyle: randomStrain3.strainId,
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
                     data: [{
-                        x: 40,
-                        y: 5.921,
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 10
+                    }]
+                }, {
+                    //Pull random strain name from masterArray
+                    label: [randomStrain4.strainName],
+                    pointStyle: randomStrain4.strainId,
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
                         r: 15
+                    }]
+                }, {
+                    //Pull random strain name from masterArray
+                    label: [randomStrain5.strainName],
+                    pointStyle: randomStrain5.strainId,
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 10
+                    }]
+                }, {
+                    //Pull random strain name from masterArray
+                    label: [randomStrain6.strainName],
+                    pointStyle: randomStrain6.strainId,
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 15
+                    }]
+                }, {
+                    //Pull random strain name from masterArray
+                    label: [randomStrain7.strainName],
+                    pointStyle: randomStrain7.strainId,
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 10
+                    }]
+                }, {
+                    //Pull random strain name from masterArray
+                    label: [randomStrain8.strainName],
+                    pointStyle: randomStrain8.strainId,
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 15
+                    }]
+                }, {
+                    //Pull random strain name from masterArray
+                    label: [randomStrain9.strainName],
+                    pointStyle: randomStrain9.strainId,
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 10
+                    }]
+                }, {
+                    //Pull random strain name from masterArray
+                    label: [randomStrain10.strainName],
+                    pointStyle: randomStrain10.strainId,
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 15
+                    }]
+                }, {
+                    //Pull random strain name from masterArray
+                    label: [randomStrain11.strainName],
+                    pointStyle: randomStrain11.strainId,
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 10
+                    }]
+                }, {
+                    //Pull random strain name from masterArray
+                    label: [randomStrain12.strainName],
+                    pointStyle: randomStrain12.strainId,
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 15
+                    }]
+                }, {
+                    //Pull random strain name from masterArray
+                    label: [randomStrain13.strainName],
+                    pointStyle: randomStrain13.strainId,
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 10
                     }]
                 }]
             },
@@ -177,5 +306,24 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                 }
             }
         });
+        myChart.onclick = function (evt) {
+            var activePoints = strainChart.getElementsAtEvent(evt);
+            console.log(activePoints);
+            if (activePoints[0]) {
+                var chartData = activePoints[0]['_chart'].config.data;
+                var idx = activePoints[0]['_datasetIndex'];
+                console.log(idx);
+                var label = chartData.labels[idx];
+                console.log(label);
+
+                var name = "Strain Name: " + strainChart.data.datasets[6].label + "Strain Id: " + strainChart.data.datasets[6].pointStyle;
+                
+                console.log(name);
+                alert(name);
+            }
+        };
+        console.log(strainChart.data.datasets[6].pointStyle);
+        console.log(strainChart.data.datasets[6].label);
+
     });
 });

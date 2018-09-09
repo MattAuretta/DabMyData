@@ -43,6 +43,13 @@
         color: whitesmoke
     }
 
-    #beerEx {
-        height: 650px;
+    #myChart {
+        height: 95%;
+        width: 95%;
     }
+
+    .whipped-cream{
+        display: block;
+        margin: 0 auto;
+    }
+

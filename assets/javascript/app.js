@@ -17,19 +17,21 @@ $("#add-strain").on("click", function (event) {
     event.preventDefault();
     //Create variable to hold user input
     var strain = $("#strain-input").val().trim()
-    //Create local variable to push to Firebase
-    // var currentStrain = strain
-    //Set the strain in Firebase
-    // database.ref("/strain/").set(currentStrain);
     //Empty search field
     $("#strain-input").val("")
+    //AJAX call for specific strain user is searching
     $.ajax({
         url: "http://strainapi.evanbusse.com/vij2AV1/strains/search/name/" + strain + "",
         method: "GET",
 
     }).then(function (response) {
+        
+        if(response.length == 0){
+            $("#invalid-strain-modal").modal("show");
+        }
         //Strain name that the user searched
         console.log(response[0].name);
+        
         $("#myChart").remove();
         $("#graph-container").append('<canvas id="myChart"></canvas>');
         //Create empty array to hold all strain names from database
@@ -59,6 +61,12 @@ $("#add-strain").on("click", function (event) {
         var randomStrain11 = masterArray[Math.floor(Math.random() * 1971)]
         var randomStrain12 = masterArray[Math.floor(Math.random() * 1971)]
         var randomStrain13 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain14 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain15 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain16 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain17 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain18 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain19 = masterArray[Math.floor(Math.random() * 1971)]
 
         //Chart.js example
         var strainChart = new Chart(document.getElementById("myChart"), {
@@ -219,26 +227,102 @@ $("#add-strain").on("click", function (event) {
                         y: Math.floor(Math.random() * 51),
                         r: 10
                     }]
-                }]
+                }, {
+                    //Pull random strain name from masterArray
+                    label: [randomStrain14.strainName],
+                    pointStyle: randomStrain14.strainId,
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 15
+                    }]
+                },{
+                    //Pull random strain name from masterArray
+                    label: [randomStrain15.strainName],
+                    pointStyle: randomStrain15.strainId,
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 15
+                    }]
+                },{
+                    //Pull random strain name from masterArray
+                    label: [randomStrain16.strainName],
+                    pointStyle: randomStrain16.strainId,
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 15
+                    }]
+                },{
+                    //Pull random strain name from masterArray
+                    label: [randomStrain17.strainName],
+                    pointStyle: randomStrain17.strainId,
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 15
+                    }]
+                },{
+                    //Pull random strain name from masterArray
+                    label: [randomStrain18.strainName],
+                    pointStyle: randomStrain18.strainId,
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 15
+                    }]
+                },{
+                    //Pull random strain name from masterArray
+                    label: [randomStrain19.strainName],
+                    pointStyle: randomStrain19.strainId,
+                    backgroundColor: "rgba(60,186,159,0.2)",
+                    borderColor: "rgba(60,186,159,1)",
+                    data: [{
+                        x: Math.floor(Math.random() * 51),
+                        y: Math.floor(Math.random() * 51),
+                        r: 15
+                    }]
+                },]
             },
             options: {
                 title: {
-                    display: true,
-                    text: 'Predicted world population (millions) in 2050'
+                    display: false,
                 },
                 scales: {
                     yAxes: [{
+                        display: false,
                         scaleLabel: {
-                            display: true,
-                            labelString: "Happiness"
+                            display: false,
                         }
                     }],
                     xAxes: [{
+                        display: false,
                         scaleLabel: {
-                            display: true,
-                            labelString: "GDP (PPP)"
+                            display: false,
                         }
                     }]
+                },
+                legend: {
+                    display: false,
+                },
+                layout: {
+                    padding: {
+                        top: 20,
+                        left: 20,
+                        right: 20,
+                        bottom: 20,
+                    }
                 }
             }
         });
@@ -319,12 +403,3 @@ function strainDatalist() {
 // })
 
 strainDatalist();
-
-//When the databse receives a new strain value
-database.ref("/strain/").on("value", function (childSnapshot) {
-
-    //Create local variable for strain
-    var strain = childSnapshot.val();
-    //AJAX call for specific strain user is searching
-    
-});

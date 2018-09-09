@@ -32,7 +32,7 @@ function masterDatabase() {
         method: "GET",
 
     }).then(function (response) {
-        // console.log(response)
+        //console.log(response.desc)
         // database.ref("/master/").push({
         //     strain: 'evan'
         // });
@@ -109,7 +109,7 @@ database.ref("/strain/").on("value", function (childSnapshot) {
                 masterArray.push(master);
             })
             console.log(masterArray);
-        });
+        })
 
         var randomStrain1 = masterArray[Math.floor(Math.random() * 1971)]
         var randomStrain2 = masterArray[Math.floor(Math.random() * 1971)]
@@ -319,11 +319,77 @@ database.ref("/strain/").on("value", function (childSnapshot) {
 
                 var label = chartData.datasets[idx].label
                 var value = chartData.datasets[idx].pointStyle
-                alert(label + value);
+
             }
-        };
-        console.log(strainChart.data.datasets[6].pointStyle);
-        console.log(strainChart.data.datasets[6].label);
-        
-    });
-});
+                
+        //THIS CODE- multiple ajax calls with $.when
+        // $.when($.getJSON("http://strainapi.evanbusse.com/vij2AV1/strains/data/desc/" + value + "", {
+        //     // tags: "moon",
+        //     // tagmode: "any",
+        //     format: "json"
+        // }),
+        // $.getJSON("http://strainapi.evanbusse.com/vij2AV1/strains/data/effects/" + value + "", {
+        //     // tags: "bird",
+        //     // tagmode: "any",
+        //      format: "json"
+        // }),
+        // $.getJSON("http://strainapi.evanbusse.com/vij2AV1/strains/data/flavors/" + value + "", {
+        //         format: "json"
+        //     })).then(function (res1, res2, res3) {
+        //         $.each(res1[0].items)
+        //             var desc = res1.desc
+        //             //$(".modal-body").html("Strain: " + label + "<br>" + "Description: " + desc)
+        //         $.each(res2[0].items)
+        //             var positive = res2.positive;
+        //             var negative = res2.negativ;
+        //             var medical = resp2.medical
+        //             //$(".modal-body").html("Strain: " + label + "<br>" + "Description: " + desc + "<br>" + "Positive Effects: " + positive + "<br>" + "Negative Effects: " + negative + "<br>" + "Medical Effects: " + medical)
+        //         $.each(res3[0].items)
+        //             var flavors = res3.flavors
+        //             $(".modal-body").html("Strain: " + label + "<br>" + "Description: " + desc + "<br>" + "Positive Effects: " + positive + "<br>" + "Negative Effects: " + negative + "<br>" + "Medical Effects: " + medical + "<br>" + "Flavor: " + flavors)
+        //             $("#myModal").modal("show");
+        //    })}})})
+        //THIS IS THE FLAVORS AJAX CALL
+        $.ajax({
+            url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/flavors/" + value + ""
+
+        }).then(function(response, ){
+            //console.log(response);
+            var flavors = response; 
+            //console.log(flavors);
+            //displays flavors
+           $("#myModal").modal("show");
+           $("#strainInfo").text(label);
+           $(".modal-body").html("<h2>Flavor: </h2>" + flavors)
+
+//THIS IS THE EFFECTS AJAX CALL
+        $.ajax({
+            url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/effects/" + value + "",
+
+        }).then(function(response, ){
+            //console.log(response);
+            var pEffects = response.positive;
+            var nEffects = response.negative;
+            var mEffects = response.medical;
+            // console.log(pEffects);
+            // console.log(nEffects);
+            // console.log(mEffects);
+            //appends effects to flavors
+           $("#myModal").modal("show");
+           $("#strainInfo").text(label);
+           $(".modal-body").append("<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects)
+
+        //THIS IS THE DESCRIPTION AJAX CALL
+        $.ajax({
+            url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/desc/" + value + "" ,
+           
+        }).then(function(response, ){
+            console.log(response);
+            var desc = response.desc;
+            console.log(desc) 
+            //appends description to effects and flavors
+           $("#myModal").modal("show");
+           $("#strainInfo").text(label);
+           $(".modal-body").append("<h2>Description: </h2>" + desc) // + "<br>" + "<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects + "<br>" + "<h2>Flavor: </h2>" + flavors);
+        });  
+    })})}})})

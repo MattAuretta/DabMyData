@@ -54,17 +54,12 @@
     }
 
     /* Age gate style */
-    /* #ageModal {
-        /* background-color: aqua; put a blur here */ 
-    /* #isthismodal{
-        
-    } */
+    
     #ageGatemodal {
         font-family: 'Noto Serif KR', sans-serif;
-       
-        border: 5px solid rgb(68, 100, 79);
-    
+        border: 5px solid rgba(68, 100, 79, 0.466);
     }
+    
     #modalHeader {
         margin-top: 2px;
         font-family: 'Exo', sans-serif;

@@ -53,3 +53,53 @@
         margin: 0 auto;
     }
 
+    /* Age gate style */
+    /* #ageModal {
+        /* background-color: aqua; put a blur here */ 
+    /* #isthismodal{
+        
+    } */
+    #ageGatemodal {
+        font-family: 'Noto Serif KR', sans-serif;
+       
+        border: 5px solid rgb(68, 100, 79);
+    
+    }
+    #modalHeader {
+        margin-top: 2px;
+        font-family: 'Exo', sans-serif;
+         text-align: center;
+         color: rgba(205, 223, 205, 0.705);
+         border-bottom: 4px solid rgb(92, 189, 92);
+    background-color: rgba(211, 211, 211, 0.301);
+    }
+    #modalfooter{
+        
+        font-family: 'Noto Serif KR', sans-serif;
+         text-align: left;
+         font-size: 14pt;
+         color: rgb(228, 228, 228);
+    }
+    #modalMonth {
+        border-top: #222;
+        margin: 0 auto; 
+        width:400px;  
+        margin-bottom: 20px;
+    }
+
+    /* #modal-age-limit {
+        border-bottom: 4px solid rgb(92, 189, 92);
+    background-color: rgba(211, 211, 211, 0.301);
+   
+    } */
+    #age-submit {
+        margin-top: 20px;
+        background-color: green;
+        margin-right: 0px;
+    }
+    #verify-year, #verify-month, #verify-day {
+        background-color: rgba(128, 180, 126, 0.507);
+        color: white;
+    }
+
+

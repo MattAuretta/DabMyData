@@ -25,13 +25,13 @@ $("#add-strain").on("click", function (event) {
         method: "GET",
 
     }).then(function (response) {
-        
-        if(response.length == 0){
+
+        if (response.length == 0) {
             $("#invalid-strain-modal").modal("show");
         }
         //Strain name that the user searched
-        console.log(response[0].name);
-        
+        // console.log(response[0].name);
+
         $("#myChart").remove();
         $("#graph-container").append('<canvas id="myChart"></canvas>');
         //Create empty array to hold all strain names from database
@@ -45,7 +45,7 @@ $("#add-strain").on("click", function (event) {
                 //Push each childSnapshot into masterArray
                 masterArray.push(master);
             })
-            console.log(masterArray);
+            // console.log(masterArray);
         });
 
         var randomStrain1 = masterArray[Math.floor(Math.random() * 1971)]
@@ -238,7 +238,7 @@ $("#add-strain").on("click", function (event) {
                         y: Math.floor(Math.random() * 51),
                         r: 15
                     }]
-                },{
+                }, {
                     //Pull random strain name from masterArray
                     label: [randomStrain15.strainName],
                     pointStyle: randomStrain15.strainId,
@@ -249,7 +249,7 @@ $("#add-strain").on("click", function (event) {
                         y: Math.floor(Math.random() * 51),
                         r: 15
                     }]
-                },{
+                }, {
                     //Pull random strain name from masterArray
                     label: [randomStrain16.strainName],
                     pointStyle: randomStrain16.strainId,
@@ -260,7 +260,7 @@ $("#add-strain").on("click", function (event) {
                         y: Math.floor(Math.random() * 51),
                         r: 15
                     }]
-                },{
+                }, {
                     //Pull random strain name from masterArray
                     label: [randomStrain17.strainName],
                     pointStyle: randomStrain17.strainId,
@@ -271,7 +271,7 @@ $("#add-strain").on("click", function (event) {
                         y: Math.floor(Math.random() * 51),
                         r: 15
                     }]
-                },{
+                }, {
                     //Pull random strain name from masterArray
                     label: [randomStrain18.strainName],
                     pointStyle: randomStrain18.strainId,
@@ -282,7 +282,7 @@ $("#add-strain").on("click", function (event) {
                         y: Math.floor(Math.random() * 51),
                         r: 15
                     }]
-                },{
+                }, {
                     //Pull random strain name from masterArray
                     label: [randomStrain19.strainName],
                     pointStyle: randomStrain19.strainId,
@@ -293,7 +293,7 @@ $("#add-strain").on("click", function (event) {
                         y: Math.floor(Math.random() * 51),
                         r: 15
                     }]
-                },]
+                }, ]
             },
             options: {
                 title: {
@@ -326,7 +326,7 @@ $("#add-strain").on("click", function (event) {
                 }
             }
         });
-        
+
         myChart.onclick = function (evt) {
 
             var activePoints = strainChart.getElementAtEvent(evt);
@@ -338,61 +338,176 @@ $("#add-strain").on("click", function (event) {
 
                 var label = chartData.datasets[idx].label
                 var value = chartData.datasets[idx].pointStyle
-                
-                    //THIS IS THE FLAVORS AJAX CALL
+
+                $.when(
                     $.ajax({
                         url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/flavors/" + value + ""
-
-                    }).then(function (response, ) {
-                        //console.log(response);
-                        var flavors = response;
-                        //console.log(flavors);
-                        //displays flavors
-                        $("#myModal").modal("show");
-                        $("#strainInfo").text(label);
-                        $("#strain-info-body").html("<h2>Flavor: </h2>" + flavors)
-
-                        //THIS IS THE EFFECTS AJAX CALL
-                        $.ajax({
-                            url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/effects/" + value + "",
-
-                        }).then(function (response, ) {
-                            //console.log(response);
-                            var pEffects = response.positive;
-                            var nEffects = response.negative;
-                            var mEffects = response.medical;
-                            // console.log(pEffects);
-                            // console.log(nEffects);
-                            // console.log(mEffects);
-                            //appends effects to flavors
-                            $("#myModal").modal("show");
-                            $("#strainInfo").text(label);
-                            $("#strain-info-body").append("<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects)
-
-                            //THIS IS THE DESCRIPTION AJAX CALL
-                            $.ajax({
-                                url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/desc/" + value + "",
-                            }).then(function (response, ) {
-                                console.log(response);
-                                var desc = response.desc;
-                                console.log(desc)
-                                //appends description to effects and flavors
-                                $("#myModal").modal("show");
-                                $("#strainInfo").text(label);
-                                $("#strain-info-body").append("<h2>Description: </h2>" + desc) // + "<br>" + "<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects + "<br>" + "<h2>Flavor: </h2>" + flavors);
-                            });
-                        })
+                    }),
+                    $.ajax({
+                        url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/effects/" + value + "",
+                    }),
+                    $.ajax({
+                        url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/desc/" + value + "",
                     })
-                }
-            }
-})
-            
-        }
-        // console.log(strainChart.data.datasets[6].pointStyle);
-        // console.log(strainChart.data.datasets[6].label);
-        
-    );
+                ).then(function (response1, response2, response3) {
+                    // console.log(response1)
+                    // console.log(response2)
+                    // console.log(response3)
 
+                    //Get Flavors from response1
+                    var flavors = response1[0];
+                    //console.log(flavors);
+
+                    //Create favorite button
+                    var favButton = $("<button>Add To Favorites</button>").attr("id", "favorite-button");
+                    favButton.addClass("btn btn-danger float-right")
+                    //Add attribute to close modal when favorite button is pressed
+                    favButton.attr("data-dismiss", "modal");
+                    //Append favorite button to title
+                    $("#strain-info-body").append(favButton);
+
+                    //displays flavors
+                    $("#myModal").modal("show");
+                    $("#strainInfo").text(label);
+                    $("#strain-info-body").append("<h2>Flavor: </h2>" + flavors)
+
+                    //Get Effects from response2
+                    var pEffects = response2[0].positive;
+                    var nEffects = response2[0].negative;
+                    var mEffects = response2[0].medical;
+                    // console.log(pEffects);
+                    // console.log(nEffects);
+                    // console.log(mEffects);
+
+                    //If statements to check if there are no effects
+                    if (pEffects.length == 0) {
+                        pEffects = "None";
+                    };
+                    if (nEffects.length == 0) {
+                        nEffects = "None";
+                    };
+                    if (mEffects.length == 0) {
+                        mEffects = "None";
+                    };
+
+                    //Appends effects to flavors
+                    $("#myModal").modal("show");
+                    $("#strainInfo").text(label);
+                    $("#strain-info-body").append("<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects)
+
+                    //Get Description from response3
+                    var desc = response3[0].desc;
+                    // console.log(desc)
+                    //appends description to effects and flavors
+                    $("#myModal").modal("show");
+                    $("#strainInfo").text(label);
+                    $("#strain-info-body").append("<h2>Description: </h2>" + desc);
+
+                    $("#favorite-button").on("click", function (event) {
+                        event.preventDefault();
+                        var newFavorite = {
+                            label: label,
+                            flavors: flavors,
+                            pEffects: pEffects,
+                            nEffects: nEffects,
+                            mEffects: mEffects,
+                        }
+                        database.ref("/favorite/").push(newFavorite)
+                    });
+
+                })
+                //THIS IS THE FLAVORS AJAX CALL
+                // $.ajax({
+                //     url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/flavors/" + value + ""
+
+                // }).then(function (response, ) {
+                //     //console.log(response);
+                //     var flavors = response;
+                //     //console.log(flavors);
+                //     //displays flavors
+                //     $("#myModal").modal("show");
+                //     $("#strainInfo").text(label);
+                //     $("#strain-info-body").html("<h2>Flavor: </h2>" + flavors)
+
+                //     //THIS IS THE EFFECTS AJAX CALL
+                //     $.ajax({
+                //         url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/effects/" + value + "",
+
+                //     }).then(function (response, ) {
+                //         //console.log(response);
+                //         var pEffects = response.positive;
+                //         var nEffects = response.negative;
+                //         var mEffects = response.medical;
+                //         // console.log(pEffects);
+                //         // console.log(nEffects);
+                //         // console.log(mEffects);
+
+                //         //If statements to check if there are no effects
+                //         if (pEffects.length == 0) {
+                //             pEffects = "None";
+                //         };
+                //         if (nEffects.length == 0) {
+                //             nEffects = "None";
+                //         };
+                //         if (mEffects.length == 0) {
+                //             mEffects = "None";
+                //         };
+
+                //         //appends effects to flavors
+                //         $("#myModal").modal("show");
+                //         $("#strainInfo").text(label);
+                //         $("#strain-info-body").append("<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects)
+
+                //         //THIS IS THE DESCRIPTION AJAX CALL
+                //         $.ajax({
+                //             url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/desc/" + value + "",
+                //         }).then(function (response, ) {
+                //             console.log(response);
+                //             var desc = response.desc;
+                //             console.log(desc)
+                //             //appends description to effects and flavors
+                //             $("#myModal").modal("show");
+                //             $("#strainInfo").text(label);
+                //             $("#strain-info-body").append("<h2>Description: </h2>" + desc) // + "<br>" + "<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects + "<br>" + "<h2>Flavor: </h2>" + flavors);
+                //             var favButton = $("<button>Add To Favorites</button>").attr("id", "favorite-button");
+                //             $("#strainInfo").append(favButton);
+                //         });
+                //     })
+
+                //     function makeFavorite() {
+                //         console.log(pEffects);
+                //     }
+                //     //Event listener for favorite button
+                //     $(document).on("click", "#favorite-button", makeFavorite);
+                // })
+            }
+        }
+    })
+});
+
+function makeFavorite() {
+
+    database.ref("/favorite/").on("child_added", function (childSnapshot) {
+        var label = childSnapshot.val().label;
+        var flavors = childSnapshot.val().flavors;
+        var pEffects = childSnapshot.val().pEffects;
+        var nEffects = childSnapshot.val().nEffects;
+        var mEffects = childSnapshot.val().mEffects;
+
+        var newRow = $("<tr>").append(
+            $("<td>").text(label),
+            $("<td>").text(flavors),
+            $("<td>").text(pEffects),
+            $("<td>").text(nEffects),
+            $("<td>").text(mEffects),
+        );
+        newRow.addClass("new-row");
+
+        // Append the new row to the table
+        $("#favorite-table-body").append(newRow);
+    })
+}
+makeFavorite();
 
 //function that pushes strains to database
 function masterDatabase() {

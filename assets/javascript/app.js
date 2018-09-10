@@ -350,7 +350,7 @@ $("#add-strain").on("click", function (event) {
                         //displays flavors
                         $("#myModal").modal("show");
                         $("#strainInfo").text(label);
-                        $(".modal-body").html("<h2>Flavor: </h2>" + flavors)
+                        $("#strain-info-body").html("<h2>Flavor: </h2>" + flavors)
 
                         //THIS IS THE EFFECTS AJAX CALL
                         $.ajax({
@@ -367,7 +367,7 @@ $("#add-strain").on("click", function (event) {
                             //appends effects to flavors
                             $("#myModal").modal("show");
                             $("#strainInfo").text(label);
-                            $(".modal-body").append("<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects)
+                            $("#strain-info-body").append("<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects)
 
                             //THIS IS THE DESCRIPTION AJAX CALL
                             $.ajax({
@@ -379,7 +379,7 @@ $("#add-strain").on("click", function (event) {
                                 //appends description to effects and flavors
                                 $("#myModal").modal("show");
                                 $("#strainInfo").text(label);
-                                $(".modal-body").append("<h2>Description: </h2>" + desc) // + "<br>" + "<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects + "<br>" + "<h2>Flavor: </h2>" + flavors);
+                                $("#strain-info-body").append("<h2>Description: </h2>" + desc) // + "<br>" + "<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects + "<br>" + "<h2>Flavor: </h2>" + flavors);
                             });
                         })
                     })

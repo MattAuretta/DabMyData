@@ -338,14 +338,61 @@ $("#add-strain").on("click", function (event) {
 
                 var label = chartData.datasets[idx].label
                 var value = chartData.datasets[idx].pointStyle
-                alert(label + value);
+                
+                    //THIS IS THE FLAVORS AJAX CALL
+                    $.ajax({
+                        url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/flavors/" + value + ""
+
+                    }).then(function (response, ) {
+                        //console.log(response);
+                        var flavors = response;
+                        //console.log(flavors);
+                        //displays flavors
+                        $("#myModal").modal("show");
+                        $("#strainInfo").text(label);
+                        $(".modal-body").html("<h2>Flavor: </h2>" + flavors)
+
+                        //THIS IS THE EFFECTS AJAX CALL
+                        $.ajax({
+                            url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/effects/" + value + "",
+
+                        }).then(function (response, ) {
+                            //console.log(response);
+                            var pEffects = response.positive;
+                            var nEffects = response.negative;
+                            var mEffects = response.medical;
+                            // console.log(pEffects);
+                            // console.log(nEffects);
+                            // console.log(mEffects);
+                            //appends effects to flavors
+                            $("#myModal").modal("show");
+                            $("#strainInfo").text(label);
+                            $(".modal-body").append("<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects)
+
+                            //THIS IS THE DESCRIPTION AJAX CALL
+                            $.ajax({
+                                url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/desc/" + value + "",
+                            }).then(function (response, ) {
+                                console.log(response);
+                                var desc = response.desc;
+                                console.log(desc)
+                                //appends description to effects and flavors
+                                $("#myModal").modal("show");
+                                $("#strainInfo").text(label);
+                                $(".modal-body").append("<h2>Description: </h2>" + desc) // + "<br>" + "<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects + "<br>" + "<h2>Flavor: </h2>" + flavors);
+                            });
+                        })
+                    })
+                }
             }
-        };
-        console.log(strainChart.data.datasets[6].pointStyle);
-        console.log(strainChart.data.datasets[6].label);
-        
-    });
 })
+            
+        }
+        // console.log(strainChart.data.datasets[6].pointStyle);
+        // console.log(strainChart.data.datasets[6].label);
+        
+    );
+
 
 //function that pushes strains to database
 function masterDatabase() {

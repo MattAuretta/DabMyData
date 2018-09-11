@@ -12,6 +12,11 @@
         font-family: 'Permanent Marker', cursive;
         display: inline-block;
     }
+    #navname {
+        font-family: 'Michroma', sans-serif;
+        color: rgb(183, 235, 228);
+        letter-spacing: -1px;
+    }
     #searchbutton {
         background-color: #fff;
     }

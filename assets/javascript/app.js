@@ -387,12 +387,12 @@ $("#add-strain").on("click", function (event) {
                     //Add attribute to close modal when favorite button is pressed
                     favButton.attr("data-dismiss", "modal");
                     //Append favorite button to title
-                    $("#strain-info-body").append(favButton);
+                    //$("#strain-info-body").append(favButton);
 
                     //displays flavors
                     $("#myModal").modal("show");
                     $("#strainInfo").text(label);
-                    $("#strain-info-body").append("<h2>Flavor: </h2>" + flavors)
+                   // $("#strain-info-body").append("<h2>Flavor: </h2>" + flavors)
 
                     //Get Effects from response2
                     var pEffects = response2[0].positive;
@@ -416,7 +416,7 @@ $("#add-strain").on("click", function (event) {
                     //Appends effects to flavors
                     $("#myModal").modal("show");
                     $("#strainInfo").text(label);
-                    $("#strain-info-body").append("<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects)
+                   // $("#strain-info-body").append("<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects)
 
                     //Get Description from response3
                     var desc = response3[0].desc;
@@ -424,7 +424,9 @@ $("#add-strain").on("click", function (event) {
                     //appends description to effects and flavors
                     $("#myModal").modal("show");
                     $("#strainInfo").text(label);
-                    $("#strain-info-body").append("<h2>Description: </h2>" + desc);
+                    $("#strain-info-body").html("<h2>Flavor: </h2>" + flavors + "<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects + "<h2>Description: </h2>" + desc + "<br>");
+                    
+                    $(".modal-footer").prepend(favButton);
 
                     $("#favorite-button").on("click", function (event) {
                         event.preventDefault();
@@ -507,6 +509,31 @@ $("#add-strain").on("click", function (event) {
         }
     })
 });
+//Facebook share
+window.fbAsyncInit = function() {
+FB.init({
+appId : '565239973894983',
+autoLogAppEvents : true,
+xfbml : true,
+version : 'v3.1'
+});
+};
+
+(function(d, s, id){
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) {return;}
+js = d.createElement(s); js.id = id;
+js.src = "https://connect.facebook.net/en_US/sdk.js";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+//Facebook share
+$('#shareBtn').on("click", function() {
+FB.ui({
+method: 'share',
+display: 'popup',
+href: 'https://developers.facebook.com/docs/',
+}, function(response){});
+})
 
 function makeFavorite() {
 

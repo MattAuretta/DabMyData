@@ -1,10 +1,15 @@
 console.log("age")
 $(document).ready(function() {
     var age = {};
-  
+    
+    //If statement to set session storage so modal doesn't continually pop up
+  if (sessionStorage.getItem("story") !== 'true') {
+    // sessionStorage.setItem('key', 'value'); pair
+    sessionStorage.setItem("story", "true");
     // For use without cookies
     $('#ageModal').modal("show");
     initAge();
+  }
     
  // check if cookie for validAge exists..
     // if (cookie.get('validAge') == 'true') {
@@ -96,7 +101,7 @@ $(document).ready(function() {
         $('#ageModal').modal('hide');
       } else {
         // window.location.assign("https://www.google.com")
-        window.location.href = ""
+        window.location.href = "redirect.html"
         console.log(window.location.href)
         //cookie.set('validAge', 'false');
         console.log("it is false");

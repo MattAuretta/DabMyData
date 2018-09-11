@@ -1,4 +1,13 @@
-// Initialize Firebase
+if (window.location.protocol == "https:") {
+    console.log("You are not connected with the correct protocol.")
+    console.log("Reloading the page to the correct protocol...")
+    window.location = document.URL.replace("https://", "http://");
+}
+
+if (window.location.protocol == "http:") {
+    console.log("You are connected with the correct protocol.")
+
+} // Initialize Firebase
 var config = {
     apiKey: "AIzaSyApiBh2t_1-6A-4T1Wyw5QM5OMnJu0ldDM",
     authDomain: "dabmydata.firebaseapp.com",

@@ -1,5 +1,3 @@
-if (window.location.protocol == "https") window.location.href = "http" + window.location.href.slice(4);
-
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyApiBh2t_1-6A-4T1Wyw5QM5OMnJu0ldDM",

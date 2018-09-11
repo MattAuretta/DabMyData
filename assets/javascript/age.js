@@ -3,17 +3,17 @@ $(document).ready(function() {
     var age = {};
   
     // For use without cookies
-    $('#ageModal').modal("show");
-    initAge();
+    // $('#ageModal').modal("show");
+    // initAge();
     
-  /*  // check if cookie for validAge exists..
+ // check if cookie for validAge exists..
     if (cookie.get('validAge') == 'true') {
       return true;
     } else {
       // doesn't exist so lets make them enter a birthday...
       $('#ageModal').modal('show');
       initAge();
-    }*/
+    }
   
     // starts the age verification process
     function initAge() {

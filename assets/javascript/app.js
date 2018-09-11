@@ -417,7 +417,7 @@ $("#add-strain").on("click", function (event) {
                     $("#strainInfo").text(label);
                     $("#strain-info-body").html("<h2>Flavor: </h2>" + flavors.join(", ") + "<h2>Positive Effects: </h2>" + pEffects.join(", ") + "<br>" + "<h2>Negative Effects: </h2>" + nEffects.join(", ") + "<br>" + "<h2>Medical Effects: </h2>" + mEffects.join(", ") + "<h2>Description: </h2>" + desc + "<br>");
                     
-                    $(".modal-footer").prepend(favButton);
+                    $("#favorite-button-div").html(favButton);
 
                     $("#favorite-button").on("click", function (event) {
                         event.preventDefault();

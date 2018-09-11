@@ -21,7 +21,7 @@ $("#add-strain").on("click", function (event) {
     $("#strain-input").val("")
     //AJAX call for specific strain user is searching
     $.ajax({
-        url: "http://strainapi.evanbusse.com/vij2AV1/strains/search/name/" + strain + "",
+        url: "https://strainapi.evanbusse.com/vij2AV1/strains/search/name/" + strain + "",
         method: "GET",
 
     }).then(function (response) {
@@ -323,8 +323,22 @@ $("#add-strain").on("click", function (event) {
                         right: 20,
                         bottom: 20,
                     }
+                },
+                tooltips: {
+                    callbacks: {
+                        label: function (tooltipItem, data) {
+                            var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                            if (label) {
+                                label += ': ';
+                            }
+                            label += "Click Me!";
+                            return label;
+                        }
+                    }
                 }
             }
+
         });
 
         myChart.onclick = function (evt) {
@@ -341,13 +355,13 @@ $("#add-strain").on("click", function (event) {
 
                 $.when(
                     $.ajax({
-                        url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/flavors/" + value + ""
+                        url: "https://strainapi.evanbusse.com/vij2AV1/strains/data/flavors/" + value + ""
                     }),
                     $.ajax({
-                        url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/effects/" + value + "",
+                        url: "https://strainapi.evanbusse.com/vij2AV1/strains/data/effects/" + value + "",
                     }),
                     $.ajax({
-                        url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/desc/" + value + "",
+                        url: "https://strainapi.evanbusse.com/vij2AV1/strains/data/desc/" + value + "",
                     })
                 ).then(function (response1, response2, response3) {
                     // console.log(response1)

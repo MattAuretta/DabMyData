@@ -47,7 +47,7 @@ $(document).ready(function() {
             if ($("#verify-month").val() == 'none') {
               $("#verify-month").css('background', 'rgba(223,32,44,0.5)');
             } else {
-              $("#verify-month").css('background', 'white');
+              $("#verify-month").css('background', '#546F54');
             }
           });
         }
@@ -60,7 +60,7 @@ $(document).ready(function() {
             if ($("#verify-day").val() == 'none') {
               $("#verify-day").css('background', 'rgba(223,32,44,0.5)');
             } else {
-              $("#verify-day").css('background', 'white');
+              $("#verify-day").css('background', '#546F54');
             }
           });
         }
@@ -73,7 +73,7 @@ $(document).ready(function() {
             if ($("#verify-year").val() == 'none') {
               $("#verify-year").css('background', 'rgba(223,32,44,0.5)');
             } else {
-              $("#verify-year").css('background', 'white');
+              $("#verify-year").css('background', '#546F54');
             }
           });
         }

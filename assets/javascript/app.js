@@ -323,8 +323,22 @@ $("#add-strain").on("click", function (event) {
                         right: 20,
                         bottom: 20,
                     }
+                },
+                tooltips: {
+                    callbacks: {
+                        label: function (tooltipItem, data) {
+                            var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                            if (label) {
+                                label += ': ';
+                            }
+                            label += "Click Me!";
+                            return label;
+                        }
+                    }
                 }
             }
+
         });
 
         myChart.onclick = function (evt) {

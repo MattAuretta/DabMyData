@@ -1,3 +1,8 @@
+if (window.location.protocol == "https:") {
+   window.location.protocol = "http:";
+   window.location.reload();
+}
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyApiBh2t_1-6A-4T1Wyw5QM5OMnJu0ldDM",
@@ -21,7 +26,7 @@ $("#add-strain").on("click", function (event) {
     $("#strain-input").val("")
     //AJAX call for specific strain user is searching
     $.ajax({
-        url: "https://strainapi.evanbusse.com/vij2AV1/strains/search/name/" + strain + "",
+        url: "http://strainapi.evanbusse.com/vij2AV1/strains/search/name/" + strain + "",
         method: "GET",
 
     }).then(function (response) {
@@ -355,13 +360,13 @@ $("#add-strain").on("click", function (event) {
 
                 $.when(
                     $.ajax({
-                        url: "https://strainapi.evanbusse.com/vij2AV1/strains/data/flavors/" + value + ""
+                        url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/flavors/" + value + ""
                     }),
                     $.ajax({
-                        url: "https://strainapi.evanbusse.com/vij2AV1/strains/data/effects/" + value + "",
+                        url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/effects/" + value + "",
                     }),
                     $.ajax({
-                        url: "https://strainapi.evanbusse.com/vij2AV1/strains/data/desc/" + value + "",
+                        url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/desc/" + value + "",
                     })
                 ).then(function (response1, response2, response3) {
                     // console.log(response1)

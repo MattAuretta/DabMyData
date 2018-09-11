@@ -1,6 +1,6 @@
-if (window.location.protocol == "https:") {
-   window.location.protocol = "http:";
-   window.location.reload();
+if (location.protocol == 'https:')
+{
+ location.href = 'http:' + window.location.href.substring(window.location.protocol.length);
 }
 
 // Initialize Firebase

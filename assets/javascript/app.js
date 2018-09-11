@@ -1,13 +1,4 @@
-if (window.location.protocol == "https:") {
-    console.log("You are not connected with the correct protocol.")
-    console.log("Reloading the page to the correct protocol...")
-    window.location = document.URL.replace("https://", "http://");
-}
-
-if (window.location.protocol == "http:") {
-    console.log("You are connected with the correct protocol.")
-
-} // Initialize Firebase
+// Initialize Firebase
 var config = {
     apiKey: "AIzaSyApiBh2t_1-6A-4T1Wyw5QM5OMnJu0ldDM",
     authDomain: "dabmydata.firebaseapp.com",
@@ -424,7 +415,7 @@ $("#add-strain").on("click", function (event) {
                     //appends description to effects and flavors
                     $("#myModal").modal("show");
                     $("#strainInfo").text(label);
-                    $("#strain-info-body").html("<h2>Flavor: </h2>" + flavors + "<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects + "<h2>Description: </h2>" + desc + "<br>");
+                    $("#strain-info-body").html("<h2>Flavor: </h2>" + flavors.join(", ") + "<h2>Positive Effects: </h2>" + pEffects.join(", ") + "<br>" + "<h2>Negative Effects: </h2>" + nEffects.join(", ") + "<br>" + "<h2>Medical Effects: </h2>" + mEffects.join(", ") + "<h2>Description: </h2>" + desc + "<br>");
                     
                     $(".modal-footer").prepend(favButton);
 
@@ -546,10 +537,10 @@ function makeFavorite() {
 
         var newRow = $("<tr>").append(
             $("<td>").text(label),
-            $("<td>").text(flavors),
-            $("<td>").text(pEffects),
-            $("<td>").text(nEffects),
-            $("<td>").text(mEffects),
+            $("<td>").text(flavors.join(", ")),
+            $("<td>").text(pEffects.join(", ")),
+            $("<td>").text(nEffects.join(", ")),
+            $("<td>").text(mEffects.join(", ")),
         );
         newRow.addClass("new-row");
 

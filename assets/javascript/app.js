@@ -402,13 +402,13 @@ $("#add-strain").on("click", function (event) {
 
                     //If statements to check if there are no effects
                     if (pEffects.length == 0) {
-                        pEffects = "None";
+                        pEffects = ["None"];
                     };
                     if (nEffects.length == 0) {
-                        nEffects = "None";
+                        nEffects = ["None"];
                     };
                     if (mEffects.length == 0) {
-                        mEffects = "None";
+                        mEffects = ["None"];
                     };
 
                     //Appends effects to flavors
@@ -422,7 +422,7 @@ $("#add-strain").on("click", function (event) {
                     //appends description to effects and flavors
                     $("#myModal").modal("show");
                     $("#strainInfo").text(label);
-                    $("#strain-info-body").html("<h2>Flavor: </h2>" + flavors + "<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects + "<h2>Description: </h2>" + desc + "<br>");
+                    $("#strain-info-body").html("<h2>Flavor: </h2>" + flavors.join(", ") + "<h2>Positive Effects: </h2>" + pEffects.join(", ") + "<br>" + "<h2>Negative Effects: </h2>" + nEffects.join(", ") + "<br>" + "<h2>Medical Effects: </h2>" + mEffects.join(", ") + "<h2>Description: </h2>" + desc + "<br>");
 
                     $("#favorite-button").on("click", function (event) {
                         event.preventDefault();

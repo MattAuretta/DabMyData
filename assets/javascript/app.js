@@ -25,9 +25,18 @@ $("#add-strain").on("click", function (event) {
         method: "GET",
 
     }).then(function (response) {
+        // console.log(response)
+        $("#chart-header").text("Your Strain is the Solid Center Bubble!")
 
         if (response.length == 0) {
             $("#invalid-strain-modal").modal("show");
+            $("#chart-header").text("Search A Strain!")
+        }
+
+        //Remove Bhang strains from responses
+        for (var i = 0; i < response.length; i++) {
+            if (response[i].name.includes("Bhang"))
+                response.splice(i, 1);
         }
         //Strain name that the user searched
         // console.log(response[0].name);
@@ -48,25 +57,25 @@ $("#add-strain").on("click", function (event) {
             // console.log(masterArray);
         });
 
-        var randomStrain1 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain2 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain3 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain4 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain5 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain6 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain7 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain8 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain9 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain10 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain11 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain12 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain13 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain14 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain15 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain16 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain17 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain18 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain19 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain1 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain2 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain3 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain4 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain5 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain6 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain7 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain8 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain9 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain10 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain11 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain12 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain13 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain14 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain15 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain16 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain17 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain18 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain19 = masterArray[Math.floor(Math.random() * 1917)]
 
         //Chart.js example
         var strainChart = new Chart(document.getElementById("myChart"), {
@@ -336,6 +345,11 @@ $("#add-strain").on("click", function (event) {
                             return label;
                         }
                     }
+                },
+                hover: {
+                    onHover: function (e) {
+                        $("#myChart").css("cursor", e[0] ? "pointer" : "default");
+                    }
                 }
             }
 
@@ -395,13 +409,13 @@ $("#add-strain").on("click", function (event) {
 
                     //If statements to check if there are no effects
                     if (pEffects.length == 0) {
-                        pEffects = "None";
+                        pEffects = ["None"];
                     };
                     if (nEffects.length == 0) {
-                        nEffects = "None";
+                        nEffects = ["None"];
                     };
                     if (mEffects.length == 0) {
-                        mEffects = "None";
+                        mEffects = ["None"];
                     };
 
                     //Appends effects to flavors
@@ -415,7 +429,7 @@ $("#add-strain").on("click", function (event) {
                     //appends description to effects and flavors
                     $("#myModal").modal("show");
                     $("#strainInfo").text(label);
-                    $("#strain-info-body").html("<h2>Flavor: </h2>" + flavors + "<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects + "<h2>Description: </h2>" + desc + "<br>");
+                    $("#strain-info-body").html("<h2>Flavor: </h2>" + flavors.join(", ") + "<h2>Positive Effects: </h2>" + pEffects.join(", ") + "<br>" + "<h2>Negative Effects: </h2>" + nEffects.join(", ") + "<br>" + "<h2>Medical Effects: </h2>" + mEffects.join(", ") + "<h2>Description: </h2>" + desc + "<br>");
 
                     $("#favorite-button").on("click", function (event) {
                         event.preventDefault();
@@ -465,12 +479,16 @@ $('#shareBtn').on("click", function () {
 function makeFavorite() {
 
     database.ref("/favorite/").on("child_added", function (childSnapshot) {
-        console.log("test")
+        // console.log("test")
         var label = childSnapshot.val().label;
         var flavors = childSnapshot.val().flavors;
         var pEffects = childSnapshot.val().pEffects;
         var nEffects = childSnapshot.val().nEffects;
         var mEffects = childSnapshot.val().mEffects;
+
+        if (nEffects === "None") {
+            nEffects = ["None"]
+        }
 
         var newRow = $("<tr>").append(
             $("<td>").text(label),

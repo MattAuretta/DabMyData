@@ -3,11 +3,10 @@ a {
     text-decoration: none;
 }
 
-a:hover 
-{
-     color:rgb(118, 204, 197); 
-     text-decoration:none; 
-     cursor:pointer;  
+a:hover {
+    color: rgb(118, 204, 197);
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .nav-link {
@@ -15,41 +14,41 @@ a:hover
     margin-left: 20px;
     margin-top: 5px;
 }
-    
-    body {
-        background-image: url("../images/otherbackground.jpg");
-        background-size: cover;
-        background-attachment: fixed;
-        background-color: #333;
-    }
 
-    h1 {
-        color: #222;
-        text-align: left;
-        font-size: 20px;
-        font-weight: bold;
-        font-family: 'Noto Serif KR', sans-serif;
-        display: inline-block;
-        margin-top: 20px;
+body {
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #333;
+}
 
-    }
+h1 {
+    color: #222;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Noto Serif KR', sans-serif;
+    display: inline-block;
+    margin-top: 20px;
 
-    #navname,
-    #favnavname {
-        font-family: 'Michroma', sans-serif;
-        color: rgb(183, 235, 228);
-        letter-spacing: -1px;
-        font-size: 23pt;
-        margin-bottom: 6px;
-        margin-top: 0px;
-        line-height: 50px;
-    }
+}
 
-    #searchbutton {
-        background-color: #fff;
-    }
+#navname,
+#favnavname {
+    font-family: 'Michroma', sans-serif;
+    color: rgb(183, 235, 228);
+    letter-spacing: -1px;
+    font-size: 23pt;
+    margin-bottom: 6px;
+    margin-top: 0px;
+    line-height: 50px;
+}
 
-    /* .reverse-letter {
+#searchbutton {
+    background-color: #fff;
+}
+
+/* .reverse-letter {
         -webkit-transform: rotateY(180deg);
         -moz-transform: rotateY(180deg);
         -o-transform: rotateY(180deg);
@@ -58,154 +57,158 @@ a:hover
         direction: rtl;
     } */
 
-    #dStyle {
-        margin-bottom: 8px;
-    }
+#dStyle {
+    margin-bottom: 8px;
+}
 
-    #navBartop,
-    #favbartop
-    {
-        background-color: rgba(36, 50, 47, 0.756);
-        border-bottom: 4px solid rgba(148, 242, 206, 0.646);
+#navBartop,
+#favbartop {
+    background-color: rgba(36, 50, 47, 0.756);
+    border-bottom: 4px solid rgba(148, 242, 206, 0.646);
 
-    }
+}
 
-    #memberInfo-display {
-        font-family: 'Permanent Marker', cursive;
-        font-family: 'Give You Glory', cursive;
-        font-family: 'Shadows Into Light', cursive;
-        font-size: 25px;
-    }
+#memberInfo-display {
+    font-family: 'Permanent Marker', cursive;
+    font-family: 'Give You Glory', cursive;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 25px;
+}
 
-    h3
-        {
-        font-family: 'Permanent Marker', cursive;
-        font-family: 'Give You Glory', cursive;
-        font-family: 'Shadows Into Light', cursive;
-        font-size: 25px;
-        color: whitesmoke
-    }
+h3 {
+    font-family: 'Permanent Marker', cursive;
+    font-family: 'Give You Glory', cursive;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 25px;
+    color: whitesmoke
+}
 
-    footer {
-        position: absolute;
-        bottom: 0;
-        background-color: rgba(84, 215, 191, 0.756);
-        width: 100%;
-        border-top: 4px solid rgba(148, 242, 206, 0.646);
-    }
+footer {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(84, 215, 191, 0.756);
+    width: 100%;
+    border-top: 4px solid rgba(148, 242, 206, 0.646);
+}
 
-    #myChart {
-        height: 95%;
-        width: 95%;
-       
-    }
-    /* Other modals */
-    #strainInfo{
-        font-size: 30pt;
-        font-weight: bold;
-        text-align: center;
-        color: rgb(255, 255, 255);
-       
-    }
-    .modal-header {
-        min-height: 16.42857143px;
-        padding: 15px;
-        border-bottom: 8px solid #0d70f3;
-        margin-left: 0px;
-        margin-right: 0px;  
-        background-color: rgb(55, 77, 77);
-      }
-      .modal-footer {
-        padding: 15px;
-        background-color: rgb(55, 77, 77);
-        border-top: 5px solid #1ff053;
-      }
-   
-    #modalstrainparent {
-        background-image: url("../images/funky-lines.png");
-        background-color: rgba(184, 228, 218, 0.918);
-    }
+#myChart {
+    height: 95%;
+    width: 95%;
 
-    .whipped-cream {
-        display: block;
-        margin: 0 auto;
-    }
+}
 
-    /* Age gate style */
-    #stylestrainmodal{
-        font-family: 'Noto Serif KR', sans-serif;
-    }
-    #ageGatemodal{
-        font-family: 'Noto Serif KR', sans-serif;
-        border: 5px solid rgba(68, 100, 79, 0.466);
-    }
+/* Other modals */
+#strainInfo {
+    font-size: 30pt;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(255, 255, 255);
 
-    #modalHeader
-     {
-        margin-top: 2px;
-        font-family: 'Exo', sans-serif;
-        text-align: center;
-        color: rgba(205, 223, 205, 0.705);
-        border-bottom: 4px solid rgb(92, 189, 92);
-        background-color: rgba(211, 211, 211, 0.301);
-    }
+}
 
-    #modalfooter {
+.modal-header {
+    min-height: 16.42857143px;
+    padding: 15px;
+    border-bottom: 8px solid #0d70f3;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: rgb(55, 77, 77);
+}
 
-        font-family: 'Noto Serif KR', sans-serif;
-        text-align: left;
-        font-size: 14pt;
-        color: rgb(228, 228, 228);
-    }
+.modal-footer {
+    padding: 15px;
+    background-color: rgb(55, 77, 77);
+    border-top: 5px solid #1ff053;
+}
 
-    #modalMonth {
-        border-top: #222;
-        margin: 0 auto;
-        width: 400px;
-        margin-bottom: 20px;
-    }
+#modalstrainparent {
+    background-image: url("../images/funky-lines.png");
+    background-color: rgba(184, 228, 218, 0.918);
+}
 
-    /* #modal-age-limit {
+.whipped-cream {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Age gate style */
+#stylestrainmodal {
+    font-family: 'Noto Serif KR', sans-serif;
+}
+
+#ageGatemodal {
+    font-family: 'Noto Serif KR', sans-serif;
+    border: 5px solid rgba(68, 100, 79, 0.466);
+}
+
+#modalHeader {
+    margin-top: 2px;
+    font-family: 'Exo', sans-serif;
+    text-align: center;
+    color: rgba(205, 223, 205, 0.705);
+    border-bottom: 4px solid rgb(92, 189, 92);
+    background-color: rgba(211, 211, 211, 0.301);
+}
+
+#modalfooter {
+
+    font-family: 'Noto Serif KR', sans-serif;
+    text-align: left;
+    font-size: 14pt;
+    color: rgb(228, 228, 228);
+}
+
+#modalMonth {
+    border-top: #222;
+    margin: 0 auto;
+    width: 400px;
+    margin-bottom: 20px;
+}
+
+/* #modal-age-limit {
         border-bottom: 4px solid rgb(92, 189, 92);
     background-color: rgba(211, 211, 211, 0.301);
    
     } */
-    #age-submit {
-        margin-top: 20px;
-        background-color: green;
-        margin-right: 0px;
-    }
+#age-submit {
+    margin-top: 20px;
+    background-color: green;
+    margin-right: 0px;
+}
 
-    #verify-year,
-    #verify-month,
-    #verify-day {
-        background-color: #546F54;
-        color: white;
-    }
+#verify-year,
+#verify-month,
+#verify-day {
+    background-color: #546F54;
+    color: white;
+}
 
-    /* Under 21 Page */
+/* Under 21 Page */
 
-    #gandalf {
-        display: block;
-        width: 100%;
-        height: auto;
-        margin-top: 2rem;
+#gandalf {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 2rem;
 
-    }
+}
 
-    #home-redirect-button {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 2rem;
-        font-size: 1.5rem;
-    }
+#home-redirect-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
 
-    /* Chart styling */
+/* Chart styling */
 
-    #stylechart {
-        margin-top: 60px;
-        height: 100%;
-        width: 100%;
-        margin-bottom: 20px;
-    }
+#chart-header {
+    color: #999;
+}
+
+#stylechart {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+}

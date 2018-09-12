@@ -378,13 +378,12 @@ $("#add-strain").on("click", function (event) {
                     //Add attribute to close modal when favorite button is pressed
                     favButton.attr("data-dismiss", "modal");
                     //Append favorite button to title
-                    //$("#strain-info-body").append(favButton);
+                    $("#favorite-button-div").html(favButton);
 
                     //displays flavors
                     $("#myModal").modal("show");
-
-                    // $("#strainInfo").text(label);
-                   // $("#strain-info-body").append("<h2>Flavor: </h2>" + flavors)
+                    $("#strainInfo").text(label);
+                    // $("#strain-info-body").append("<h2>Flavor: </h2>" + flavors)
 
                     //Get Effects from response2
                     var pEffects = response2[0].positive;
@@ -407,10 +406,8 @@ $("#add-strain").on("click", function (event) {
 
                     //Appends effects to flavors
                     $("#myModal").modal("show");
-
-                    // $("#strainInfo").text(label);
-                   // $("#strain-info-body").append("<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects)
-
+                    $("#strainInfo").text(label);
+                    // $("#strain-info-body").append("<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects)
 
                     //Get Description from response3
                     var desc = response3[0].desc;
@@ -418,11 +415,7 @@ $("#add-strain").on("click", function (event) {
                     //appends description to effects and flavors
                     $("#myModal").modal("show");
                     $("#strainInfo").text(label);
-
-                    $("#strain-info-body").html("<h1>Flavor: </h1>" + "<br>"+ flavors.join(", ") + "<br>"+ "<h1>Positive Effects: </h1>" + "<br>" + pEffects.join(", ") + "<br>" + "<h1>Negative Effects: </h1>"+ "<br>" + nEffects.join(", ") + "<br>" + "<h1>Medical Effects: </h1>"+ "<br>" + mEffects.join(", ") + "<br>" + "<h1>Description: </h1>"+ "<br>" + desc + "<br>");
-                    
-
-                    $("#favorite-button-div").html(favButton);
+                    $("#strain-info-body").html("<h2>Flavor: </h2>" + flavors + "<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects + "<h2>Description: </h2>" + desc + "<br>");
 
                     $("#favorite-button").on("click", function (event) {
                         event.preventDefault();
@@ -472,6 +465,7 @@ $('#shareBtn').on("click", function () {
 function makeFavorite() {
 
     database.ref("/favorite/").on("child_added", function (childSnapshot) {
+        console.log("test")
         var label = childSnapshot.val().label;
         var flavors = childSnapshot.val().flavors;
         var pEffects = childSnapshot.val().pEffects;

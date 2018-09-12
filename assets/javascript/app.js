@@ -473,14 +473,14 @@ function makeFavorite() {
         var mEffects = childSnapshot.val().mEffects;
 
         if(nEffects === "None"){
-            nEffects = ["None", " "]
+            nEffects = ["None"]
         }
 
         var newRow = $("<tr>").append(
             $("<td>").text(label),
             $("<td>").text(flavors.join(", ")),
             $("<td>").text(pEffects.join(", ")),
-            $("<td>").text(nEffects.join(" ")),
+            $("<td>").text(nEffects.join(", ")),
             $("<td>").text(mEffects.join(", ")),
         );
         newRow.addClass("new-row");

@@ -25,9 +25,16 @@ $("#add-strain").on("click", function (event) {
         method: "GET",
 
     }).then(function (response) {
+        // console.log(response)
 
         if (response.length == 0) {
             $("#invalid-strain-modal").modal("show");
+        }
+
+        //Remove Bhang strains from responses
+        for(var i = 0; i < response.length; i++){
+            if(response[i].name.includes("Bhang"))
+            response.splice(i, 1);
         }
         //Strain name that the user searched
         // console.log(response[0].name);
@@ -48,25 +55,25 @@ $("#add-strain").on("click", function (event) {
             // console.log(masterArray);
         });
 
-        var randomStrain1 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain2 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain3 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain4 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain5 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain6 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain7 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain8 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain9 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain10 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain11 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain12 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain13 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain14 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain15 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain16 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain17 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain18 = masterArray[Math.floor(Math.random() * 1971)]
-        var randomStrain19 = masterArray[Math.floor(Math.random() * 1971)]
+        var randomStrain1 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain2 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain3 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain4 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain5 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain6 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain7 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain8 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain9 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain10 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain11 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain12 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain13 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain14 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain15 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain16 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain17 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain18 = masterArray[Math.floor(Math.random() * 1917)]
+        var randomStrain19 = masterArray[Math.floor(Math.random() * 1917)]
 
         //Chart.js example
         var strainChart = new Chart(document.getElementById("myChart"), {
@@ -364,9 +371,9 @@ $("#add-strain").on("click", function (event) {
                         url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/desc/" + value + "",
                     })
                 ).then(function (response1, response2, response3) {
-                    console.log(response1)
-                    console.log(response2)
-                    console.log(response3)
+                    // console.log(response1)
+                    // console.log(response2)
+                    // console.log(response3)
 
                     //Get Flavors from response1
                     var flavors = response1[0];
@@ -465,7 +472,7 @@ $('#shareBtn').on("click", function () {
 function makeFavorite() {
 
     database.ref("/favorite/").on("child_added", function (childSnapshot) {
-        console.log("test")
+        // console.log("test")
         var label = childSnapshot.val().label;
         var flavors = childSnapshot.val().flavors;
         var pEffects = childSnapshot.val().pEffects;

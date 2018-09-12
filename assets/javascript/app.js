@@ -364,9 +364,9 @@ $("#add-strain").on("click", function (event) {
                         url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/desc/" + value + "",
                     })
                 ).then(function (response1, response2, response3) {
-                    // console.log(response1)
-                    // console.log(response2)
-                    // console.log(response3)
+                    console.log(response1)
+                    console.log(response2)
+                    console.log(response3)
 
                     //Get Flavors from response1
                     var flavors = response1[0];

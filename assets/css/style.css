@@ -1,5 +1,5 @@
     body {
-        background-image: url("../images/background.jpg");
+        background-image: url("../images/otherbackground.jpg");
         background-size: cover;
         background-attachment: fixed;
         background-color: #333;
@@ -12,21 +12,32 @@
         font-family: 'Permanent Marker', cursive;
         display: inline-block;
     }
-
-    .reverse-letter {
+    #navname {
+        font-family: 'Michroma', sans-serif;
+        color: rgb(183, 235, 228);
+        letter-spacing: -1px;
+    }
+    #searchbutton {
+        background-color: #fff;
+    }
+    /* .reverse-letter {
         -webkit-transform: rotateY(180deg);
         -moz-transform: rotateY(180deg);
         -o-transform: rotateY(180deg);
         -ms-transform: rotateY(180deg);
         unicode-bidi: bidi-override;
         direction: rtl;
-    }
+    } */
 
     #dStyle {
         margin-bottom: 8px;
     }
 
-    #navBar,
+    #navBartop {
+        background-color: rgba(36, 50, 47, 0.756);
+        border-bottom: 4px solid rgba(148, 242, 206, 0.646);
+
+    }
     #memberInfo-display {
         font-family: 'Permanent Marker', cursive;
         font-family: 'Give You Glory', cursive;
@@ -35,12 +46,20 @@
     }
 
     h3,
-    #footer {
+    {
         font-family: 'Permanent Marker', cursive;
         font-family: 'Give You Glory', cursive;
         font-family: 'Shadows Into Light', cursive;
         font-size: 25px;
         color: whitesmoke
+    }
+
+    footer {
+        position:absolute;
+   bottom:0;
+   background-color: rgba(84, 215, 191, 0.756);
+   width: 100%;
+   border-top: 4px solid rgba(148, 242, 206, 0.646);
     }
 
     #myChart {
@@ -97,10 +116,12 @@
         color: white;
     }
 
-    #gandalf {
-        display: block;
+
+    /* Chart styling */
+
+    #stylechart {
+        margin-top: 60px;
+        height: 100%;
         width: 100%;
-        height: auto;
     }
 
-    

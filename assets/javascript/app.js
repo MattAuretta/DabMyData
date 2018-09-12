@@ -382,7 +382,7 @@ $("#add-strain").on("click", function (event) {
 
                     //displays flavors
                     $("#myModal").modal("show");
-                    $("#strainInfo").text(label);
+                    // $("#strainInfo").text(label);
                    // $("#strain-info-body").append("<h2>Flavor: </h2>" + flavors)
 
                     //Get Effects from response2
@@ -406,7 +406,7 @@ $("#add-strain").on("click", function (event) {
 
                     //Appends effects to flavors
                     $("#myModal").modal("show");
-                    $("#strainInfo").text(label);
+                    // $("#strainInfo").text(label);
                    // $("#strain-info-body").append("<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects)
 
                     //Get Description from response3
@@ -415,7 +415,7 @@ $("#add-strain").on("click", function (event) {
                     //appends description to effects and flavors
                     $("#myModal").modal("show");
                     $("#strainInfo").text(label);
-                    $("#strain-info-body").html("<h2>Flavor: </h2>" + flavors.join(", ") + "<h2>Positive Effects: </h2>" + pEffects.join(", ") + "<br>" + "<h2>Negative Effects: </h2>" + nEffects.join(", ") + "<br>" + "<h2>Medical Effects: </h2>" + mEffects.join(", ") + "<h2>Description: </h2>" + desc + "<br>");
+                    $("#strain-info-body").html("<h1>Flavor: </h1>" + "<br>"+ flavors.join(", ") + "<br>"+ "<h1>Positive Effects: </h1>" + "<br>" + pEffects.join(", ") + "<br>" + "<h1>Negative Effects: </h1>"+ "<br>" + nEffects.join(", ") + "<br>" + "<h1>Medical Effects: </h1>"+ "<br>" + mEffects.join(", ") + "<br>" + "<h1>Description: </h1>"+ "<br>" + desc + "<br>");
                     
                     $("#favorite-button-div").html(favButton);
 

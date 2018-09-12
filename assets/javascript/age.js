@@ -88,6 +88,7 @@ $(document).ready(function() {
         //Hide age modal
         $('#ageModal').modal('hide');
       } else {
+        sessionStorage.setItem("story", "false");
         //Redirect to not old enough page
         window.location.href = "redirect.html"
       }

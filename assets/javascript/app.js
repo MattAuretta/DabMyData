@@ -383,7 +383,7 @@ $("#add-strain").on("click", function (event) {
                     //displays flavors
                     $("#myModal").modal("show");
                     $("#strainInfo").text(label);
-                   // $("#strain-info-body").append("<h2>Flavor: </h2>" + flavors)
+                    // $("#strain-info-body").append("<h2>Flavor: </h2>" + flavors)
 
                     //Get Effects from response2
                     var pEffects = response2[0].positive;
@@ -407,7 +407,7 @@ $("#add-strain").on("click", function (event) {
                     //Appends effects to flavors
                     $("#myModal").modal("show");
                     $("#strainInfo").text(label);
-                   // $("#strain-info-body").append("<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects)
+                    // $("#strain-info-body").append("<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects)
 
                     //Get Description from response3
                     var desc = response3[0].desc;
@@ -416,7 +416,7 @@ $("#add-strain").on("click", function (event) {
                     $("#myModal").modal("show");
                     $("#strainInfo").text(label);
                     $("#strain-info-body").html("<h2>Flavor: </h2>" + flavors.join(", ") + "<h2>Positive Effects: </h2>" + pEffects.join(", ") + "<br>" + "<h2>Negative Effects: </h2>" + nEffects.join(", ") + "<br>" + "<h2>Medical Effects: </h2>" + mEffects.join(", ") + "<h2>Description: </h2>" + desc + "<br>");
-                    
+
                     $("#favorite-button-div").html(favButton);
 
                     $("#favorite-button").on("click", function (event) {
@@ -430,100 +430,38 @@ $("#add-strain").on("click", function (event) {
                         }
                         database.ref("/favorite/").push(newFavorite)
                     });
-
                 })
-                //THIS IS THE FLAVORS AJAX CALL
-                // $.ajax({
-                //     url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/flavors/" + value + ""
-
-                // }).then(function (response, ) {
-                //     //console.log(response);
-                //     var flavors = response;
-                //     //console.log(flavors);
-                //     //displays flavors
-                //     $("#myModal").modal("show");
-                //     $("#strainInfo").text(label);
-                //     $("#strain-info-body").html("<h2>Flavor: </h2>" + flavors)
-
-                //     //THIS IS THE EFFECTS AJAX CALL
-                //     $.ajax({
-                //         url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/effects/" + value + "",
-
-                //     }).then(function (response, ) {
-                //         //console.log(response);
-                //         var pEffects = response.positive;
-                //         var nEffects = response.negative;
-                //         var mEffects = response.medical;
-                //         // console.log(pEffects);
-                //         // console.log(nEffects);
-                //         // console.log(mEffects);
-
-                //         //If statements to check if there are no effects
-                //         if (pEffects.length == 0) {
-                //             pEffects = "None";
-                //         };
-                //         if (nEffects.length == 0) {
-                //             nEffects = "None";
-                //         };
-                //         if (mEffects.length == 0) {
-                //             mEffects = "None";
-                //         };
-
-                //         //appends effects to flavors
-                //         $("#myModal").modal("show");
-                //         $("#strainInfo").text(label);
-                //         $("#strain-info-body").append("<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects)
-
-                //         //THIS IS THE DESCRIPTION AJAX CALL
-                //         $.ajax({
-                //             url: "http://strainapi.evanbusse.com/vij2AV1/strains/data/desc/" + value + "",
-                //         }).then(function (response, ) {
-                //             console.log(response);
-                //             var desc = response.desc;
-                //             console.log(desc)
-                //             //appends description to effects and flavors
-                //             $("#myModal").modal("show");
-                //             $("#strainInfo").text(label);
-                //             $("#strain-info-body").append("<h2>Description: </h2>" + desc) // + "<br>" + "<h2>Positive Effects: </h2>" + pEffects + "<br>" + "<h2>Negative Effects: </h2>" + nEffects + "<br>" + "<h2>Medical Effects: </h2>" + mEffects + "<br>" + "<h2>Flavor: </h2>" + flavors);
-                //             var favButton = $("<button>Add To Favorites</button>").attr("id", "favorite-button");
-                //             $("#strainInfo").append(favButton);
-                //         });
-                //     })
-
-                //     function makeFavorite() {
-                //         console.log(pEffects);
-                //     }
-                //     //Event listener for favorite button
-                //     $(document).on("click", "#favorite-button", makeFavorite);
-                // })
             }
         }
     })
 });
 //Facebook share
-window.fbAsyncInit = function() {
-FB.init({
-appId : '565239973894983',
-autoLogAppEvents : true,
-xfbml : true,
-version : 'v3.1'
-});
+window.fbAsyncInit = function () {
+    FB.init({
+        appId: '565239973894983',
+        autoLogAppEvents: true,
+        xfbml: true,
+        version: 'v3.1'
+    });
 };
 
-(function(d, s, id){
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) {return;}
-js = d.createElement(s); js.id = id;
-js.src = "https://connect.facebook.net/en_US/sdk.js";
-fjs.parentNode.insertBefore(js, fjs);
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+        return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 //Facebook share
-$('#shareBtn').on("click", function() {
-FB.ui({
-method: 'share',
-display: 'popup',
-href: 'https://developers.facebook.com/docs/',
-}, function(response){});
+$('#shareBtn').on("click", function () {
+    FB.ui({
+        method: 'share',
+        display: 'popup',
+        href: 'https://mattauretta.github.io/DabMyData/index.html',
+    }, );
 })
 
 function makeFavorite() {
@@ -606,3 +544,9 @@ function strainDatalist() {
 // })
 
 strainDatalist();
+
+//Under 21 page, redirect to home page
+$("#home-redirect-button").on("click", function (event) {
+    event.preventDefault();
+    window.location.href = "index.html"
+})

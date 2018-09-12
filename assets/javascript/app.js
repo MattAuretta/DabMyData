@@ -30,12 +30,13 @@ $("#add-strain").on("click", function (event) {
 
         if (response.length == 0) {
             $("#invalid-strain-modal").modal("show");
+            $("#chart-header").text("Search A Strain!")
         }
 
         //Remove Bhang strains from responses
-        for(var i = 0; i < response.length; i++){
-            if(response[i].name.includes("Bhang"))
-            response.splice(i, 1);
+        for (var i = 0; i < response.length; i++) {
+            if (response[i].name.includes("Bhang"))
+                response.splice(i, 1);
         }
         //Strain name that the user searched
         // console.log(response[0].name);
@@ -344,6 +345,11 @@ $("#add-strain").on("click", function (event) {
                             return label;
                         }
                     }
+                },
+                hover: {
+                    onHover: function (e) {
+                        $("#myChart").css("cursor", e[0] ? "pointer" : "default");
+                    }
                 }
             }
 
@@ -480,7 +486,7 @@ function makeFavorite() {
         var nEffects = childSnapshot.val().nEffects;
         var mEffects = childSnapshot.val().mEffects;
 
-        if(nEffects === "None"){
+        if (nEffects === "None") {
             nEffects = ["None"]
         }
 

@@ -26,6 +26,7 @@ $("#add-strain").on("click", function (event) {
 
     }).then(function (response) {
         // console.log(response)
+        $("#chart-header").text("Your Strain is the Solid Center Bubble!")
 
         if (response.length == 0) {
             $("#invalid-strain-modal").modal("show");

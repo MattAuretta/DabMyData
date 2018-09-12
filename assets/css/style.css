@@ -1,3 +1,21 @@
+a {
+    color: rgb(231, 236, 240);
+    text-decoration: none;
+}
+
+a:hover 
+{
+     color:rgb(118, 204, 197); 
+     text-decoration:none; 
+     cursor:pointer;  
+}
+
+.nav-link {
+    font-family: 'Noto Serif KR', sans-serif;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+    
     body {
         background-image: url("../images/otherbackground.jpg");
         background-size: cover;
@@ -7,16 +25,24 @@
 
     h1 {
         color: #222;
-        text-align: center;
-        font-size: 40px;
-        font-family: 'Permanent Marker', cursive;
+        text-align: left;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: 'Noto Serif KR', sans-serif;
         display: inline-block;
+        margin-top: 20px;
+
     }
 
-    #navname {
+    #navname,
+    #favnavname {
         font-family: 'Michroma', sans-serif;
         color: rgb(183, 235, 228);
         letter-spacing: -1px;
+        font-size: 23pt;
+        margin-bottom: 6px;
+        margin-top: 0px;
+        line-height: 50px;
     }
 
     #searchbutton {
@@ -36,7 +62,9 @@
         margin-bottom: 8px;
     }
 
-    #navBartop {
+    #navBartop,
+    #favbartop
+    {
         background-color: rgba(36, 50, 47, 0.756);
         border-bottom: 4px solid rgba(148, 242, 206, 0.646);
 
@@ -49,7 +77,7 @@
         font-size: 25px;
     }
 
-    h3,
+    h3
         {
         font-family: 'Permanent Marker', cursive;
         font-family: 'Give You Glory', cursive;
@@ -69,6 +97,33 @@
     #myChart {
         height: 95%;
         width: 95%;
+       
+    }
+    /* Other modals */
+    #strainInfo{
+        font-size: 30pt;
+        font-weight: bold;
+        text-align: center;
+        color: rgb(255, 255, 255);
+       
+    }
+    .modal-header {
+        min-height: 16.42857143px;
+        padding: 15px;
+        border-bottom: 8px solid #0d70f3;
+        margin-left: 0px;
+        margin-right: 0px;  
+        background-color: rgb(55, 77, 77);
+      }
+      .modal-footer {
+        padding: 15px;
+        background-color: rgb(55, 77, 77);
+        border-top: 5px solid #1ff053;
+      }
+   
+    #modalstrainparent {
+        background-image: url("../images/funky-lines.png");
+        background-color: rgba(184, 228, 218, 0.918);
     }
 
     .whipped-cream {
@@ -77,13 +132,16 @@
     }
 
     /* Age gate style */
-
-    #ageGatemodal {
+    #stylestrainmodal{
+        font-family: 'Noto Serif KR', sans-serif;
+    }
+    #ageGatemodal{
         font-family: 'Noto Serif KR', sans-serif;
         border: 5px solid rgba(68, 100, 79, 0.466);
     }
 
-    #modalHeader {
+    #modalHeader
+     {
         margin-top: 2px;
         font-family: 'Exo', sans-serif;
         text-align: center;
@@ -149,4 +207,5 @@
         margin-top: 60px;
         height: 100%;
         width: 100%;
+        margin-bottom: 20px;
     }

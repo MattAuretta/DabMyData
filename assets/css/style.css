@@ -79,7 +79,7 @@
         border: 5px solid rgba(68, 100, 79, 0.466);
     }
     
-    #modalHeader {
+    #age-modal-header {
         margin-top: 2px;
         font-family: 'Exo', sans-serif;
          text-align: center;
@@ -87,14 +87,14 @@
          border-bottom: 4px solid rgb(92, 189, 92);
     background-color: rgba(211, 211, 211, 0.301);
     }
-    #modalfooter{
+    #age-modal-footer{
         
         font-family: 'Noto Serif KR', sans-serif;
          text-align: left;
          font-size: 14pt;
          color: rgb(228, 228, 228);
     }
-    #modalMonth {
+    #age-modal-month {
         border-top: #222;
         margin: 0 auto; 
         width:400px;  
@@ -112,9 +112,10 @@
         margin-right: 0px;
     }
     #verify-year, #verify-month, #verify-day {
-        background-color: rgba(128, 180, 126, 0.507);
+        background-color: #546F54;
         color: white;
     }
+
 
     /* Chart styling */
 
@@ -123,3 +124,4 @@
         height: 100%;
         width: 100%;
     }
+

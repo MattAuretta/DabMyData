@@ -1,27 +1,20 @@
 console.log("age")
 $(document).ready(function() {
     var age = {};
-  
+
+    //If statement to set session storage so modal doesn't continually pop up
+  if (sessionStorage.getItem("story") !== 'true') {
+    // sessionStorage.setItem('key', 'value'); pair
+    sessionStorage.setItem("story", "true");
     // For use without cookies
     $('#ageModal').modal("show");
     initAge();
-    
- // check if cookie for validAge exists..
-    // if (cookie.get('validAge') == 'true') {
-    //   return true;
-    // } else {
-    //   // doesn't exist so lets make them enter a birthday...
-    //   $('#ageModal').modal('show');
-    //   initAge();
-    // }
+  }
   
     // starts the age verification process
     function initAge() {
   
       $("#age-submit").on("click", function() {
-        // var age = $("#verify-month").val()
-        // var day = $("#verify-day").val();
-        // var year = $("#verify-year").val();
         var age = {
             'month': $("#verify-month").val(),
             'day': $("#verify-day").val(),
@@ -47,7 +40,7 @@ $(document).ready(function() {
             if ($("#verify-month").val() == 'none') {
               $("#verify-month").css('background', 'rgba(223,32,44,0.5)');
             } else {
-              $("#verify-month").css('background', 'white');
+              $("#verify-month").css('background', '#546F54');
             }
           });
         }
@@ -60,7 +53,7 @@ $(document).ready(function() {
             if ($("#verify-day").val() == 'none') {
               $("#verify-day").css('background', 'rgba(223,32,44,0.5)');
             } else {
-              $("#verify-day").css('background', 'white');
+              $("#verify-day").css('background', '#546F54');
             }
           });
         }
@@ -73,7 +66,7 @@ $(document).ready(function() {
             if ($("#verify-year").val() == 'none') {
               $("#verify-year").css('background', 'rgba(223,32,44,0.5)');
             } else {
-              $("#verify-year").css('background', 'white');
+              $("#verify-year").css('background', '#546F54');
             }
           });
         }
@@ -92,14 +85,11 @@ $(document).ready(function() {
       var oldEnough = moment(birthDate, "MM DD YYYY").isBefore(ageLimit, 'day');
   
       if (oldEnough) {
-        //cookie.set('validAge', 'true');
+        //Hide age modal
         $('#ageModal').modal('hide');
       } else {
-        // window.location.assign("https://www.google.com")
-        window.location.href = ""
-        console.log(window.location.href)
-        //cookie.set('validAge', 'false');
-        console.log("it is false");
+        //Redirect to not old enough page
+        window.location.href = "redirect.html"
       }
     }
   });

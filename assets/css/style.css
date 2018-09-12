@@ -12,14 +12,17 @@
         font-family: 'Permanent Marker', cursive;
         display: inline-block;
     }
+
     #navname {
         font-family: 'Michroma', sans-serif;
         color: rgb(183, 235, 228);
         letter-spacing: -1px;
     }
+
     #searchbutton {
         background-color: #fff;
     }
+
     /* .reverse-letter {
         -webkit-transform: rotateY(180deg);
         -moz-transform: rotateY(180deg);
@@ -38,6 +41,7 @@
         border-bottom: 4px solid rgba(148, 242, 206, 0.646);
 
     }
+
     #memberInfo-display {
         font-family: 'Permanent Marker', cursive;
         font-family: 'Give You Glory', cursive;
@@ -46,7 +50,7 @@
     }
 
     h3,
-    {
+        {
         font-family: 'Permanent Marker', cursive;
         font-family: 'Give You Glory', cursive;
         font-family: 'Shadows Into Light', cursive;
@@ -55,11 +59,11 @@
     }
 
     footer {
-        position:absolute;
-   bottom:0;
-   background-color: rgba(84, 215, 191, 0.756);
-   width: 100%;
-   border-top: 4px solid rgba(148, 242, 206, 0.646);
+        position: absolute;
+        bottom: 0;
+        background-color: rgba(84, 215, 191, 0.756);
+        width: 100%;
+        border-top: 4px solid rgba(148, 242, 206, 0.646);
     }
 
     #myChart {
@@ -72,32 +76,34 @@
         margin: 0 auto;
     }
 
-     /* Age gate style */
-    
-     #ageGatemodal {
+    /* Age gate style */
+
+    #ageGatemodal {
         font-family: 'Noto Serif KR', sans-serif;
         border: 5px solid rgba(68, 100, 79, 0.466);
     }
-    
-    #age-modal-header {
+
+    #modalHeader {
         margin-top: 2px;
         font-family: 'Exo', sans-serif;
-         text-align: center;
-         color: rgba(205, 223, 205, 0.705);
-         border-bottom: 4px solid rgb(92, 189, 92);
-    background-color: rgba(211, 211, 211, 0.301);
+        text-align: center;
+        color: rgba(205, 223, 205, 0.705);
+        border-bottom: 4px solid rgb(92, 189, 92);
+        background-color: rgba(211, 211, 211, 0.301);
     }
-    #age-modal-footer{
-        
+
+    #modalfooter {
+
         font-family: 'Noto Serif KR', sans-serif;
-         text-align: left;
-         font-size: 14pt;
-         color: rgb(228, 228, 228);
+        text-align: left;
+        font-size: 14pt;
+        color: rgb(228, 228, 228);
     }
-    #age-modal-month {
+
+    #modalMonth {
         border-top: #222;
-        margin: 0 auto; 
-        width:400px;  
+        margin: 0 auto;
+        width: 400px;
         margin-bottom: 20px;
     }
 
@@ -111,11 +117,19 @@
         background-color: green;
         margin-right: 0px;
     }
-    #verify-year, #verify-month, #verify-day {
+
+    #verify-year,
+    #verify-month,
+    #verify-day {
         background-color: #546F54;
         color: white;
     }
 
+    #gandalf {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
 
     /* Chart styling */
 
@@ -124,4 +138,3 @@
         height: 100%;
         width: 100%;
     }
-

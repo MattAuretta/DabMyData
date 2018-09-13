@@ -10,7 +10,7 @@ a:hover {
 }
 
 .nav-link {
-    font-family: 'Noto Serif KR', sans-serif;
+    /* font-family: 'Noto Serif KR', sans-serif; */
     margin-left: 20px;
     margin-top: 5px;
 }

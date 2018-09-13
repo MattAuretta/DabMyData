@@ -10,7 +10,7 @@ a:hover {
 }
 
 .nav-link {
-    font-family: 'Noto Serif KR', sans-serif;
+    /* font-family: 'Noto Serif KR', sans-serif; */
     margin-left: 20px;
     margin-top: 5px;
 }
@@ -83,22 +83,14 @@ h3 {
     color: whitesmoke
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
-    background-color: rgba(84, 215, 191, 0.756);
-    width: 100%;
-    border-top: 4px solid rgba(148, 242, 206, 0.646);
-}
-
 #myChart {
     height: 95%;
     width: 95%;
-
 }
 
 /* Other modals */
-#strainInfo {
+#strainInfo,
+.modal-title {
     font-size: 30pt;
     font-weight: bold;
     text-align: center;
@@ -121,7 +113,7 @@ footer {
     border-top: 5px solid #1ff053;
 }
 
-#modalstrainparent {
+.modal-content {
     background-image: url("../images/funky-lines.png");
     background-color: rgba(184, 228, 218, 0.918);
 }
@@ -211,4 +203,20 @@ footer {
     height: 100%;
     width: 100%;
     margin-bottom: 20px;
+}
+
+/* Footer */
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -39px;
+}
+
+footer {
+    background-color: rgba(84, 215, 191, 0.756);
+    width: 100%;
+    border-top: 4px solid rgba(148, 242, 206, 0.646);
+}
+
+.push {
+  height: 39px;
 }

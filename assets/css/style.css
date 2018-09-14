@@ -151,6 +151,11 @@ h3 {
     margin-bottom: 20px;
 }
 
+#invalid-age-message {
+    color: rgb(255, 0, 0);
+    margin-left: 40px;
+}
+
 /* #modal-age-limit {
         border-bottom: 4px solid rgb(92, 189, 92);
     background-color: rgba(211, 211, 211, 0.301);

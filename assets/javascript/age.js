@@ -1,12 +1,9 @@
-console.log("age")
 $(document).ready(function() {
     var age = {};
 
     //If statement to set session storage so modal doesn't continually pop up
   if (sessionStorage.getItem("story") !== 'true') {
-    // sessionStorage.setItem('key', 'value'); pair
     sessionStorage.setItem("story", "true");
-    // For use without cookies
     $('#ageModal').modal("show");
     initAge();
   }

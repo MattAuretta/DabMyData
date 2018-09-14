@@ -15,6 +15,10 @@ a:hover {
     margin-top: 5px;
 }
 
+.fa-bars{
+    color: #B7EBE4;
+}
+
 body {
     background-image: url("../images/background.jpg");
     background-size: cover;
@@ -47,15 +51,6 @@ h1 {
 #searchbutton {
     background-color: #fff;
 }
-
-/* .reverse-letter {
-        -webkit-transform: rotateY(180deg);
-        -moz-transform: rotateY(180deg);
-        -o-transform: rotateY(180deg);
-        -ms-transform: rotateY(180deg);
-        unicode-bidi: bidi-override;
-        direction: rtl;
-    } */
 
 #dStyle {
     margin-bottom: 8px;
@@ -95,7 +90,6 @@ h3 {
     font-weight: bold;
     text-align: center;
     color: rgb(255, 255, 255);
-
 }
 
 .modal-header {
@@ -206,10 +200,10 @@ h3 {
 }
 
 /* Footer */
-.wrapper {
+/* .wrapper {
   min-height: 100%;
   margin-bottom: -39px;
-}
+} */
 
 footer {
     background-color: rgba(84, 215, 191, 0.756);
@@ -217,6 +211,6 @@ footer {
     border-top: 4px solid rgba(148, 242, 206, 0.646);
 }
 
-.push {
+/* .push {
   height: 39px;
-}
+} */
